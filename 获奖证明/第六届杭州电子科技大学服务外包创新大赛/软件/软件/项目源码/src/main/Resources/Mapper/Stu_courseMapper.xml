@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.Stu_courseMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Stu_course">
+    <id column="studentId" jdbcType="INTEGER" property="studentId" />
+    <id column="courseId" jdbcType="INTEGER" property="courseId" />
+    <result column="chooseTime" jdbcType="DATE" property="chooseTime" />
+    <result column="examScore" jdbcType="DOUBLE" property="examScore" />
+    <result column="AllScore" jdbcType="DOUBLE" property="allScore" />
+    <result column="commentScore" jdbcType="DOUBLE" property="commentScore" />
+    <result column="testScore" jdbcType="DOUBLE" property="testScore" />
+    <result column="oneAnswerSrc" jdbcType="VARCHAR" property="oneAnswerSrc" />
+    <result column="twoAnswerSrc" jdbcType="VARCHAR" property="twoAnswerSrc" />
+    <result column="threeAnswerSrc" jdbcType="VARCHAR" property="threeAnswerSrc" />
+    <result column="fourAnswerSrc" jdbcType="VARCHAR" property="fourAnswerSrc" />
+    <result column="fiveAnswerSrc" jdbcType="VARCHAR" property="fiveAnswerSrc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    studentId, courseId, chooseTime, examScore, AllScore, commentScore, testScore, oneAnswerSrc, 
+    twoAnswerSrc, threeAnswerSrc, fourAnswerSrc, fiveAnswerSrc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.xqq.pojo.Stu_courseKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stu_course
+    where studentId = #{studentId,jdbcType=INTEGER}
+    and courseId = #{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from stu_course
+    where
+    courseId=#{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentIdAndCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from stu_course
+    where studentId=#{studentId,jdbcType=INTEGER}
+    and
+    courseId=#{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from stu_course
+    where studentId=#{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.xqq.pojo.Stu_courseKey">
+    delete from stu_course
+    where studentId = #{studentId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Stu_course">
+    insert into stu_course (studentId, courseId, chooseTime, 
+      examScore, AllScore, commentScore, 
+      testScore, oneAnswerSrc, twoAnswerSrc, 
+      threeAnswerSrc, fourAnswerSrc, fiveAnswerSrc
+      )
+    values (#{studentId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{chooseTime,jdbcType=DATE}, 
+      #{examScore,jdbcType=DOUBLE}, #{allScore,jdbcType=DOUBLE}, #{commentScore,jdbcType=DOUBLE}, 
+      #{testScore,jdbcType=DOUBLE}, #{oneAnswerSrc,jdbcType=VARCHAR}, #{twoAnswerSrc,jdbcType=VARCHAR}, 
+      #{threeAnswerSrc,jdbcType=VARCHAR}, #{fourAnswerSrc,jdbcType=VARCHAR}, #{fiveAnswerSrc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Stu_course">
+    insert into stu_course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        studentId,
+      </if>
+      <if test="courseId != null">
+        courseId,
+      </if>
+      <if test="chooseTime != null">
+        chooseTime,
+      </if>
+      <if test="examScore != null">
+        examScore,
+      </if>
+      <if test="allScore != null">
+        AllScore,
+      </if>
+      <if test="commentScore != null">
+        commentScore,
+      </if>
+      <if test="testScore != null">
+        testScore,
+      </if>
+      <if test="oneAnswerSrc != null">
+        oneAnswerSrc,
+      </if>
+      <if test="twoAnswerSrc != null">
+        twoAnswerSrc,
+      </if>
+      <if test="threeAnswerSrc != null">
+        threeAnswerSrc,
+      </if>
+      <if test="fourAnswerSrc != null">
+        fourAnswerSrc,
+      </if>
+      <if test="fiveAnswerSrc != null">
+        fiveAnswerSrc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="chooseTime != null">
+        #{chooseTime,jdbcType=DATE},
+      </if>
+      <if test="examScore != null">
+        #{examScore,jdbcType=DOUBLE},
+      </if>
+      <if test="allScore != null">
+        #{allScore,jdbcType=DOUBLE},
+      </if>
+      <if test="commentScore != null">
+        #{commentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="testScore != null">
+        #{testScore,jdbcType=DOUBLE},
+      </if>
+      <if test="oneAnswerSrc != null">
+        #{oneAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="twoAnswerSrc != null">
+        #{twoAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="threeAnswerSrc != null">
+        #{threeAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="fourAnswerSrc != null">
+        #{fourAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveAnswerSrc != null">
+        #{fiveAnswerSrc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Stu_course">
+    update stu_course
+    <set>
+      <if test="chooseTime != null">
+        chooseTime = #{chooseTime,jdbcType=DATE},
+      </if>
+      <if test="examScore != null">
+        examScore = #{examScore,jdbcType=DOUBLE},
+      </if>
+      <if test="allScore != null">
+        AllScore = #{allScore,jdbcType=DOUBLE},
+      </if>
+      <if test="commentScore != null">
+        commentScore = #{commentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="testScore != null">
+        testScore = #{testScore,jdbcType=DOUBLE},
+      </if>
+      <if test="oneAnswerSrc != null">
+        oneAnswerSrc = #{oneAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="twoAnswerSrc != null">
+        twoAnswerSrc = #{twoAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="threeAnswerSrc != null">
+        threeAnswerSrc = #{threeAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="fourAnswerSrc != null">
+        fourAnswerSrc = #{fourAnswerSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveAnswerSrc != null">
+        fiveAnswerSrc = #{fiveAnswerSrc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where studentId = #{studentId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Stu_course">
+    update stu_course
+    set chooseTime = #{chooseTime,jdbcType=DATE},
+      examScore = #{examScore,jdbcType=DOUBLE},
+      AllScore = #{allScore,jdbcType=DOUBLE},
+      commentScore = #{commentScore,jdbcType=DOUBLE},
+      testScore = #{testScore,jdbcType=DOUBLE},
+      oneAnswerSrc = #{oneAnswerSrc,jdbcType=VARCHAR},
+      twoAnswerSrc = #{twoAnswerSrc,jdbcType=VARCHAR},
+      threeAnswerSrc = #{threeAnswerSrc,jdbcType=VARCHAR},
+      fourAnswerSrc = #{fourAnswerSrc,jdbcType=VARCHAR},
+      fiveAnswerSrc = #{fiveAnswerSrc,jdbcType=VARCHAR}
+    where studentId = #{studentId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+</mapper>

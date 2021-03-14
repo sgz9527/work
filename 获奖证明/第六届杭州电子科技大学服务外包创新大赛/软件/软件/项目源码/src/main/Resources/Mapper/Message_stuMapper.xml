@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.Message_stuMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Message_stuKey">
+    <id column="messageId" jdbcType="INTEGER" property="messageId" />
+    <id column="studentId" jdbcType="INTEGER" property="studentId" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select * from message_stu
+    where messageId = #{messageId,jdbcType=INTEGER}
+      and studentId = #{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.xqq.pojo.Message_stuKey">
+    delete from message_stu
+    where messageId = #{messageId,jdbcType=INTEGER}
+      and studentId = #{studentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Message_stuKey">
+    insert into message_stu (messageId, studentId)
+    values (#{messageId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Message_stuKey">
+    insert into message_stu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        messageId,
+      </if>
+      <if test="studentId != null">
+        studentId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

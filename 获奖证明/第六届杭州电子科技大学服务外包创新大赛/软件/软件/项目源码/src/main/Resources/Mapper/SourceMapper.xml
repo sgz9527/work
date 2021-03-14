@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.SourceMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Source">
+    <id column="sourceId" jdbcType="INTEGER" property="sourceId" />
+    <result column="belongUtilId" jdbcType="INTEGER" property="belongUtilId" />
+    <result column="sourceSrc" jdbcType="VARCHAR" property="sourceSrc" />
+    <result column="sourceType" jdbcType="VARCHAR" property="sourceType" />
+    <result column="poster" jdbcType="VARCHAR" property="poster" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sourceId, belongUtilId, sourceSrc, sourceType, poster
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from source
+    where sourceId = #{sourceId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUtilId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from source
+    where belongUtilId = #{utilId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUtilIdAndType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from source
+    where belongUtilId = #{utilId,jdbcType=INTEGER}
+    and sourceType=#{sourceType,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from source
+    where sourceId = #{sourceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Source">
+    insert into source (sourceId, belongUtilId, sourceSrc, 
+      sourceType, poster)
+    values (#{sourceId,jdbcType=INTEGER}, #{belongUtilId,jdbcType=INTEGER}, #{sourceSrc,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{poster,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Source">
+    insert into source
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sourceId != null">
+        sourceId,
+      </if>
+      <if test="belongUtilId != null">
+        belongUtilId,
+      </if>
+      <if test="sourceSrc != null">
+        sourceSrc,
+      </if>
+      <if test="sourceType != null">
+        sourceType,
+      </if>
+      <if test="poster != null">
+        poster,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="belongUtilId != null">
+        #{belongUtilId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceSrc != null">
+        #{sourceSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="poster != null">
+        #{poster,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Source">
+    update source
+    <set>
+      <if test="belongUtilId != null">
+        belongUtilId = #{belongUtilId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceSrc != null">
+        sourceSrc = #{sourceSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        sourceType = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="poster != null">
+        poster = #{poster,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sourceId = #{sourceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Source">
+    update source
+    set belongUtilId = #{belongUtilId,jdbcType=INTEGER},
+      sourceSrc = #{sourceSrc,jdbcType=VARCHAR},
+      sourceType = #{sourceType,jdbcType=VARCHAR},
+      poster = #{poster,jdbcType=VARCHAR}
+    where sourceId = #{sourceId,jdbcType=INTEGER}
+  </update>
+</mapper>

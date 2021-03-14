@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.UtilMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Util">
+    <id column="utilId" jdbcType="INTEGER" property="utilId" />
+    <result column="utilTitle" jdbcType="VARCHAR" property="utilTitle" />
+    <result column="utilName" jdbcType="VARCHAR" property="utilName" />
+    <result column="belongChapterId" jdbcType="INTEGER" property="belongChapterId" />
+    <result column="utilOrder" jdbcType="INTEGER" property="utilOrder" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    utilId, utilTitle, utilName, belongChapterId, utilOrder
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from util
+    where utilId = #{utilId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByChapterId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from util
+    where belongChapterId = #{chapterId,jdbcType=INTEGER}
+    GROUP BY utilOrder ASC
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from util
+    where utilId = #{utilId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Util">
+    insert into util (utilId, utilTitle, utilName, 
+      belongChapterId, utilOrder)
+    values (#{utilId,jdbcType=INTEGER}, #{utilTitle,jdbcType=VARCHAR}, #{utilName,jdbcType=VARCHAR}, 
+      #{belongChapterId,jdbcType=INTEGER}, #{utilOrder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Util">
+    insert into util
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="utilId != null">
+        utilId,
+      </if>
+      <if test="utilTitle != null">
+        utilTitle,
+      </if>
+      <if test="utilName != null">
+        utilName,
+      </if>
+      <if test="belongChapterId != null">
+        belongChapterId,
+      </if>
+      <if test="utilOrder != null">
+        utilOrder,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="utilId != null">
+        #{utilId,jdbcType=INTEGER},
+      </if>
+      <if test="utilTitle != null">
+        #{utilTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="utilName != null">
+        #{utilName,jdbcType=VARCHAR},
+      </if>
+      <if test="belongChapterId != null">
+        #{belongChapterId,jdbcType=INTEGER},
+      </if>
+      <if test="utilOrder != null">
+        #{utilOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Util">
+    update util
+    <set>
+      <if test="utilTitle != null">
+        utilTitle = #{utilTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="utilName != null">
+        utilName = #{utilName,jdbcType=VARCHAR},
+      </if>
+      <if test="belongChapterId != null">
+        belongChapterId = #{belongChapterId,jdbcType=INTEGER},
+      </if>
+      <if test="utilOrder != null">
+        utilOrder = #{utilOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where utilId = #{utilId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Util">
+    update util
+    set utilTitle = #{utilTitle,jdbcType=VARCHAR},
+      utilName = #{utilName,jdbcType=VARCHAR},
+      belongChapterId = #{belongChapterId,jdbcType=INTEGER},
+      utilOrder = #{utilOrder,jdbcType=INTEGER}
+    where utilId = #{utilId,jdbcType=INTEGER}
+  </update>
+</mapper>

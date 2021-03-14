@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Student">
+    <id column="studentId" jdbcType="INTEGER" property="studentId" />
+    <result column="studentAccount" jdbcType="VARCHAR" property="studentAccount" />
+    <result column="studentName" jdbcType="VARCHAR" property="studentName" />
+    <result column="studentPassword" jdbcType="VARCHAR" property="studentPassword" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="studentPic" jdbcType="VARCHAR" property="studentPic" />
+    <result column="studentIntroduce" jdbcType="VARCHAR" property="studentIntroduce" />
+    <result column="commentNum" jdbcType="INTEGER" property="commentNum" />
+    <result column="belongClass" jdbcType="VARCHAR" property="belongClass" />
+    <result column="belongSchId" jdbcType="VARCHAR" property="belongSchId" />
+    <result column="createDate" jdbcType="VARCHAR" property="createDate" />
+    <result column="studentEmail" jdbcType="VARCHAR" property="studentEmail" />
+    <result column="belongSchName" jdbcType="VARCHAR" property="belongSchName" />
+    <result column="studentSex" jdbcType="VARCHAR" property="studentSex" />
+    <result column="isBelongSch" jdbcType="INTEGER" property="isBelongSch" />
+    <result column="breakTopicRuleNum" jdbcType="INTEGER" property="breakTopicRuleNum" />
+    <result column="breakComRuleNum" jdbcType="INTEGER" property="breakComRuleNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    studentId, studentAccount, studentName, studentPassword, type, studentPic, studentIntroduce, 
+    commentNum, belongClass, belongSchId, createDate, studentEmail, belongSchName, studentSex, 
+    isBelongSch, breakTopicRuleNum, breakComRuleNum
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where studentId = #{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where studentId = #{studentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Student">
+    insert into student (studentId, studentAccount, studentName, 
+      studentPassword, type, studentPic, 
+      studentIntroduce, commentNum, belongClass, 
+      belongSchId, createDate, studentEmail, 
+      belongSchName, studentSex, isBelongSch, 
+      breakTopicRuleNum, breakComRuleNum)
+    values (#{studentId,jdbcType=INTEGER}, #{studentAccount,jdbcType=VARCHAR}, #{studentName,jdbcType=VARCHAR}, 
+      #{studentPassword,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{studentPic,jdbcType=VARCHAR}, 
+      #{studentIntroduce,jdbcType=VARCHAR}, #{commentNum,jdbcType=INTEGER}, #{belongClass,jdbcType=VARCHAR}, 
+      #{belongSchId,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}, #{studentEmail,jdbcType=VARCHAR}, 
+      #{belongSchName,jdbcType=VARCHAR}, #{studentSex,jdbcType=VARCHAR}, #{isBelongSch,jdbcType=INTEGER}, 
+      #{breakTopicRuleNum,jdbcType=INTEGER}, #{breakComRuleNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        studentId,
+      </if>
+      <if test="studentAccount != null">
+        studentAccount,
+      </if>
+      <if test="studentName != null">
+        studentName,
+      </if>
+      <if test="studentPassword != null">
+        studentPassword,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="studentPic != null">
+        studentPic,
+      </if>
+      <if test="studentIntroduce != null">
+        studentIntroduce,
+      </if>
+      <if test="commentNum != null">
+        commentNum,
+      </if>
+      <if test="belongClass != null">
+        belongClass,
+      </if>
+      <if test="belongSchId != null">
+        belongSchId,
+      </if>
+      <if test="createDate != null">
+        createDate,
+      </if>
+      <if test="studentEmail != null">
+        studentEmail,
+      </if>
+      <if test="belongSchName != null">
+        belongSchName,
+      </if>
+      <if test="studentSex != null">
+        studentSex,
+      </if>
+      <if test="isBelongSch != null">
+        isBelongSch,
+      </if>
+      <if test="breakTopicRuleNum != null">
+        breakTopicRuleNum,
+      </if>
+      <if test="breakComRuleNum != null">
+        breakComRuleNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentAccount != null">
+        #{studentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="studentName != null">
+        #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPassword != null">
+        #{studentPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPic != null">
+        #{studentPic,jdbcType=VARCHAR},
+      </if>
+      <if test="studentIntroduce != null">
+        #{studentIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="belongClass != null">
+        #{belongClass,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchId != null">
+        #{belongSchId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="studentEmail != null">
+        #{studentEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchName != null">
+        #{belongSchName,jdbcType=VARCHAR},
+      </if>
+      <if test="studentSex != null">
+        #{studentSex,jdbcType=VARCHAR},
+      </if>
+      <if test="isBelongSch != null">
+        #{isBelongSch,jdbcType=INTEGER},
+      </if>
+      <if test="breakTopicRuleNum != null">
+        #{breakTopicRuleNum,jdbcType=INTEGER},
+      </if>
+      <if test="breakComRuleNum != null">
+        #{breakComRuleNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Student">
+    update student
+    <set>
+      <if test="studentAccount != null">
+        studentAccount = #{studentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="studentName != null">
+        studentName = #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPassword != null">
+        studentPassword = #{studentPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPic != null">
+        studentPic = #{studentPic,jdbcType=VARCHAR},
+      </if>
+      <if test="studentIntroduce != null">
+        studentIntroduce = #{studentIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        commentNum = #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="belongClass != null">
+        belongClass = #{belongClass,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchId != null">
+        belongSchId = #{belongSchId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="studentEmail != null">
+        studentEmail = #{studentEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchName != null">
+        belongSchName = #{belongSchName,jdbcType=VARCHAR},
+      </if>
+      <if test="studentSex != null">
+        studentSex = #{studentSex,jdbcType=VARCHAR},
+      </if>
+      <if test="isBelongSch != null">
+        isBelongSch = #{isBelongSch,jdbcType=INTEGER},
+      </if>
+      <if test="breakTopicRuleNum != null">
+        breakTopicRuleNum = #{breakTopicRuleNum,jdbcType=INTEGER},
+      </if>
+      <if test="breakComRuleNum != null">
+        breakComRuleNum = #{breakComRuleNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where studentId = #{studentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Student">
+    update student
+    set studentAccount = #{studentAccount,jdbcType=VARCHAR},
+      studentName = #{studentName,jdbcType=VARCHAR},
+      studentPassword = #{studentPassword,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      studentPic = #{studentPic,jdbcType=VARCHAR},
+      studentIntroduce = #{studentIntroduce,jdbcType=VARCHAR},
+      commentNum = #{commentNum,jdbcType=INTEGER},
+      belongClass = #{belongClass,jdbcType=VARCHAR},
+      belongSchId = #{belongSchId,jdbcType=VARCHAR},
+      createDate = #{createDate,jdbcType=VARCHAR},
+      studentEmail = #{studentEmail,jdbcType=VARCHAR},
+      belongSchName = #{belongSchName,jdbcType=VARCHAR},
+      studentSex = #{studentSex,jdbcType=VARCHAR},
+      isBelongSch = #{isBelongSch,jdbcType=INTEGER},
+      breakTopicRuleNum = #{breakTopicRuleNum,jdbcType=INTEGER},
+      breakComRuleNum = #{breakComRuleNum,jdbcType=INTEGER}
+    where studentId = #{studentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateBreakComRule" parameterType="java.lang.Integer">
+    update student
+    set breakComRuleNum=breakComRuleNum+1
+    WHERE studentId=#{studentId}
+  </update>
+</mapper>

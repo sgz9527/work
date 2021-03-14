@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Notice">
+    <id column="noticeId" jdbcType="INTEGER" property="noticeId" />
+    <result column="noticeTitle" jdbcType="VARCHAR" property="noticeTitle" />
+    <result column="noticeDetail" jdbcType="VARCHAR" property="noticeDetail" />
+    <result column="belongCourseId" jdbcType="INTEGER" property="belongCourseId" />
+    <result column="writer" jdbcType="VARCHAR" property="writer" />
+    <result column="Time" jdbcType="VARCHAR" property="time" />
+    <result column="SystemTime" jdbcType="TIME" property="systemTime" />
+    <result column="noticeState" jdbcType="VARCHAR" property="noticeState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    noticeId, noticeTitle, noticeDetail, belongCourseId, writer, Time, SystemTime, noticeState
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from notice
+    where noticeId = #{noticeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCourseId" resultMap="BaseResultMap">
+    select * from notice
+    where BelongCourseId=#{courseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from notice
+    where noticeId = #{noticeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Notice" keyProperty="noticeId" useGeneratedKeys="true">
+    insert into notice (noticeId, noticeTitle, noticeDetail, 
+      belongCourseId, writer, Time,
+      SystemTime, noticeState)
+    values (#{noticeId,jdbcType=INTEGER}, #{noticeTitle,jdbcType=VARCHAR}, #{noticeDetail,jdbcType=VARCHAR}, 
+      #{belongCourseId,jdbcType=INTEGER}, #{writer,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{systemTime,jdbcType=VARCHAR}, #{noticeState,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Notice">
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeId != null">
+        noticeId,
+      </if>
+      <if test="noticeTitle != null">
+        noticeTitle,
+      </if>
+      <if test="noticeDetail != null">
+        noticeDetail,
+      </if>
+      <if test="belongCourseId != null">
+        belongCourseId,
+      </if>
+      <if test="writer != null">
+        writer,
+      </if>
+      <if test="time != null">
+        Time,
+      </if>
+      <if test="systemTime != null">
+        SystemTime,
+      </if>
+      <if test="noticeState != null">
+        noticeState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeId != null">
+        #{noticeId,jdbcType=INTEGER},
+      </if>
+      <if test="noticeTitle != null">
+        #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeDetail != null">
+        #{noticeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="belongCourseId != null">
+        #{belongCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="writer != null">
+        #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="systemTime != null">
+        #{systemTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeState != null">
+        #{noticeState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Notice">
+    update notice
+    <set>
+      <if test="noticeTitle != null">
+        noticeTitle = #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeDetail != null">
+        noticeDetail = #{noticeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="belongCourseId != null">
+        belongCourseId = #{belongCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="writer != null">
+        writer = #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        Time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="systemTime != null">
+        SystemTime = #{systemTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeState != null">
+        noticeState = #{noticeState,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where noticeId = #{noticeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Notice">
+    update notice
+    set noticeTitle = #{noticeTitle,jdbcType=VARCHAR},
+      noticeDetail = #{noticeDetail,jdbcType=VARCHAR},
+      belongCourseId = #{belongCourseId,jdbcType=INTEGER},
+      writer = #{writer,jdbcType=VARCHAR},
+      Time = #{time,jdbcType=VARCHAR},
+      SystemTime = #{systemTime,jdbcType=VARCHAR},
+      noticeState = #{noticeState,jdbcType=VARCHAR}
+    where noticeId = #{noticeId,jdbcType=INTEGER}
+  </update>
+</mapper>

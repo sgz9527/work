@@ -1,0 +1,279 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#F5F2F2;
+}
+/*导航栏开始*/
+.nav{
+	width:100%;
+	height:auto;
+}
+div.head{
+	position: fixed;
+	top:0px;
+	width: 63%;
+	height: 36px;
+	float:left;
+	left:8px;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead{
+	position:fixed;
+	top:0px;
+	width: 37%;
+	height: 36px;
+	right:8px;
+	float:left;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead input.text{
+	background-color: beige;
+	height:32px;
+	width:51%;
+	margin-top:2px;
+	margin-left:0px;
+	font-size:14px;
+	color:darkgrey;
+}
+
+div.rightofhead input.searchbutton{
+	width:15%;
+	background-color: #F30A0E;
+	color:aliceblue;
+	margin-top:0px;
+	height:32px;
+	border-style:none;
+	margin-left:0px;
+}
+div.rightofhead input.searchbutton:hover,div.rightofhead input.searchbutton:active{
+	background-color:  firebrick;
+}
+div.rightofhead div a:link,div.rightofhead div a:visited{
+	text-align: center;
+	color: beige;
+	font-size:16px;
+	text-decoration: none;
+	
+}
+div.rightofhead div a:hover,div.rightofhead div a:active{
+	color:#16E494;
+	font-size: 17px;
+	text-decoration: underline;
+}
+div.head ul{
+	padding-left: 0px;
+	margin: auto;
+	width: 99.5%;
+	height:40px;
+	float: left;
+	position: absolute;
+}
+div.head ul li{
+	display: inline;
+	margin-left: 10px;
+	font-size: 28px;
+	color:aquamarine;
+	height:inherit;
+}
+div.head ul li:hover,div.head ul li:active{
+	background-color: grey;
+}
+div.head ul li a{
+	font-size: 20px;
+	text-decoration: none;
+}
+div.head ul li a:link,div.head ul li a:visited{
+	color:#C5BBBB;
+}
+div.head ul li a:hover,div.head ul li a:active{
+	color:ghostwhite;
+	text-decoration: underline;
+}/*导航栏结束*/
+
+
+
+
+
+
+
+/*右侧固定部分开始*/
+.fixright{
+	width:300px;
+	background-color:rgba(0,0,0,0.4);
+	position:fixed;
+	height:auto;
+	top:60px;
+	right:5px;
+	text-align: center;
+	color:white;
+	
+}
+.numberone{
+	text-align: left;
+	width:100%;
+	height:auto;
+	
+}
+.leftone{
+	float:left;
+	width:47%;
+	height:85px;
+	position:relative;
+	/*background-image:url(../img/DE7BB48BFEE61200D2A1C2100BB9E652.png);*/
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.rightone{
+	float:left;
+	width:50%;
+	height:85px;
+	margin-left:7px;
+	padding-left: 4px;
+}
+/*右侧固定部分结束*/
+
+
+
+
+
+
+
+
+
+/*课程分类目录开始*/
+.category{
+	margin-top:40px;
+}
+.categorytitle{
+	padding-left:20px;
+	width:70%;
+	height:60px;
+	background-color:white;
+	padding-top:22px;
+	color:black;
+	font-size:18px;
+	
+}
+.categories{
+	width:70%;
+	height:130px;
+	background:rgba(213,203,203,0.5);
+	margin-left:20px;
+}
+.categories table{
+	width:100%;
+	height:90%;
+	margin-bottom:10px;
+	text-align: center;
+	padding-left:15px;
+	font-size:18px;
+}
+.categories table tr td:hover{
+	background-color:yellowgreen;
+}
+.categorydetails :hover{
+	cursor: pointer;
+}
+.clicgreen{
+	background:rgba(19,185,12,0.79);
+}
+/*课程分类目录结束*/
+
+
+
+
+
+
+
+
+/*课程状态分类导航开始*/
+.coursestate{
+	margin-left:20px;
+	background-color:rgba(249,242,242,0.8);
+	width:70%;
+	height:40px;
+	padding:10px;
+	margin-top:50px;
+	color:darkgrey;
+	font-size:16px;
+}
+.coursestate span{
+	margin-left:30px;
+}
+/*课程状态分类导航结束*/
+
+
+
+
+
+
+
+
+
+/*课程显示开始*/
+.allcourse{
+	margin-top:60px;
+	width:70%;
+	margin-left:20px;
+	height:4400px;
+	background:rgba(249,249,249,1.00);
+}
+.coursedisplay{
+	width:100%;
+	height:190px;
+	background:white;
+	margin-top:30px;
+	padding-top:10px;
+}
+.displayleft{
+	width:30%;
+	margin-left:10px;
+	height:170px;
+	float:left;
+}
+.displayright{
+	width:60%;
+	height:170px;
+	margin-left:50px;
+	float:left;
+	color:greenyellow;
+}
+.schandteac{
+	width:100%;
+	height:40px;
+	padding-top:10px;
+	color:darkgrey;
+}
+.introducecourse{
+	width:100%;
+	height:55px;
+	color:grey;
+}
+/*课程显示结束*/
+
+
+
+
+
+
+
+
+
+/*切换到下一页*/
+.shift{
+	
+}
+/*切换结束*/
+
+
+
+
+
+
+/*网页最后部分*/
+.footer{
+	
+}
+

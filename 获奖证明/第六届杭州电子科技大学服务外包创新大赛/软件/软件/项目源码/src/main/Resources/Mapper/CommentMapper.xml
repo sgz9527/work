@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.CommentMapper">
+  <resultMap id="topicMap" type="com.xqq.pojo.Topic">
+    <id column="topicId" jdbcType="INTEGER" property="topicId" />
+    <result column="belongCourseId" jdbcType="INTEGER" property="belongCourseId" />
+    <result column="topicDetail" jdbcType="VARCHAR" property="topicDetail" />
+    <result column="topicTime" jdbcType="VARCHAR" property="topicTime" />
+    <result column="topicWritterId" jdbcType="INTEGER" property="topicWritterId" />
+    <result column="topicWritterType" jdbcType="SMALLINT" property="topicWritterType" />
+    <result column="reportNum" jdbcType="INTEGER" property="reportNum" />
+    <result column="isForbiden" jdbcType="SMALLINT" property="isForbiden" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Comment">
+    <id column="commentId" jdbcType="INTEGER" property="commentId" />
+    <result column="commentTime" jdbcType="VARCHAR" property="commentTime" />
+    <result column="commentInfo" jdbcType="VARCHAR" property="commentInfo" />
+    <result column="commentWritterId" jdbcType="INTEGER" property="commentWritterId" />
+    <result column="commentWritterType" jdbcType="SMALLINT" property="commentWritterType" />
+    <result column="belongTopicId" jdbcType="INTEGER" property="belongTopicId" />
+    <result column="replyToId" jdbcType="INTEGER" property="replyToId" />
+    <result column="reportNum" jdbcType="INTEGER" property="reportNum" />
+    <result column="isForbiden" jdbcType="SMALLINT" property="isForbiden" />
+    <association property="topic" javaType="com.xqq.pojo.Topic" resultMap="topicMap"></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    commentId, commentTime, commentInfo, commentWritterId, commentWritterType, belongTopicId,
+    replyToId,reportNum,isForbiden
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where commentId = #{commentId,jdbcType=INTEGER}
+    and isForbiden=0
+  </select>
+  <select id="selectByPrimaryKey1" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from comment
+    where commentId = #{commentId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByReportNum" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from comment
+    where reportNum >= #{maxReportNum,jdbcType=INTEGER}
+    and commentWritterType=0
+    and isForbiden=0
+  </select>
+  <select id="selectByTopicId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from comment
+    WHERE
+    belongTopicId=#{topicId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTimeAndWritter"  resultMap="BaseResultMap">
+    select * from comment
+    WHERE commentWritterId=#{commentWritterId,jdbcType=INTEGER}
+    and commentWritterType=#{commentWritterType,jdbcType=SMALLINT}
+    and commentTime=#{commentTime,jdbcType=INTEGER}
+    and isForbiden=0
+
+  </select>
+  <select id="selectReply" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from comment
+    WHERE
+    replyToId=#{commentId,jdbcType=INTEGER}
+    and isForbiden=0
+  </select>
+  <select id="selectByStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from comment
+    WHERE
+    commentWritterId=#{studentId,jdbcType=INTEGER}
+    and commentWritterType=0
+    and isForbiden=0
+  </select>
+  <select id="selectByCourseId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT
+    <include refid="Base_Column_List" />
+    from comment
+    where  isForbiden=0
+    and  comment.belongTopicId IN
+    (select topicId from topic where topic.belongCourseId=#{courseId})
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from comment
+    where commentId = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Comment">
+    insert into comment (commentId, commentTime, commentInfo, 
+      commentWritterId, commentWritterType, 
+      belongTopicId, replyToId,reportNum,isForbiden)
+    values (#{commentId,jdbcType=INTEGER}, #{commentTime,jdbcType=VARCHAR}, #{commentInfo,jdbcType=VARCHAR}, 
+      #{commentWritterId,jdbcType=INTEGER}, #{commentWritterType,jdbcType=SMALLINT}, 
+      #{belongTopicId,jdbcType=INTEGER}, #{replyToId,jdbcType=INTEGER},#{reportNum,jdbcType=INTEGER},#{isForbiden,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Comment">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        commentId,
+      </if>
+      <if test="commentTime != null">
+        commentTime,
+      </if>
+      <if test="commentInfo != null">
+        commentInfo,
+      </if>
+      <if test="commentWritterId != null">
+        commentWritterId,
+      </if>
+      <if test="commentWritterType != null">
+        commentWritterType,
+      </if>
+      <if test="belongTopicId != null">
+        belongTopicId,
+      </if>
+      <if test="replyToId != null">
+        replyToId,
+      </if>
+      <if test="reportNum != null">
+        reportNum,
+      </if>
+      <if test="isForbiden != null">
+        isForbiden,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="commentInfo != null">
+        #{commentInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commentWritterId != null">
+        #{commentWritterId,jdbcType=INTEGER},
+      </if>
+      <if test="commentWritterType != null">
+        #{commentWritterType,jdbcType=SMALLINT},
+      </if>
+      <if test="belongTopicId != null">
+        #{belongTopicId,jdbcType=INTEGER},
+      </if>
+      <if test="replyToId != null">
+        #{replyToId,jdbcType=INTEGER},
+      </if>
+      <if test="reportNum != null">
+        #{reportNum,jdbcType=INTEGER}
+      </if>
+      <if test="isForbiden != null">
+        #{isForbiden,jdbcType=SMALLINT}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Comment">
+    update comment
+    <set>
+      <if test="commentTime != null">
+        commentTime = #{commentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="commentInfo != null">
+        commentInfo = #{commentInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commentWritterId != null">
+        commentWritterId = #{commentWritterId,jdbcType=INTEGER},
+      </if>
+      <if test="commentWritterType != null">
+        commentWritterType = #{commentWritterType,jdbcType=SMALLINT},
+      </if>
+      <if test="belongCourseId != null">
+        belongTopicId = #{belongTopicId,jdbcType=INTEGER},
+      </if>
+      <if test="replyToId != null">
+        replyToId = #{replyToId,jdbcType=INTEGER},
+      </if>
+      <if test="reportNum != null">
+        #{reportNum,jdbcType=INTEGER}
+      </if>
+      <if test="isForbiden != null">
+        #{isForbiden,jdbcType=SMALLINT}
+      </if>
+    </set>
+    where commentId = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Comment">
+    update comment
+    set commentTime = #{commentTime,jdbcType=VARCHAR},
+      commentInfo = #{commentInfo,jdbcType=VARCHAR},
+      commentWritterId = #{commentWritterId,jdbcType=INTEGER},
+      commentWritterType = #{commentWritterType,jdbcType=SMALLINT},
+      belongTopicId = #{belongTopicId,jdbcType=INTEGER},
+      replyToId = #{replyToId,jdbcType=INTEGER,},#{reportNum,jdbcType=INTEGER},#{isForbiden,jdbcType=SMALLINT}
+    where commentId = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateReportNum" parameterType="java.lang.Integer">
+    update comment
+    set reportNum=reportNum+1
+    where commentId=#{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByCommentId" parameterType="java.lang.Integer">
+    update comment
+    set isForbiden=1
+    where commentId=#{commentId,jdbcType=INTEGER}
+  </update>
+</mapper>

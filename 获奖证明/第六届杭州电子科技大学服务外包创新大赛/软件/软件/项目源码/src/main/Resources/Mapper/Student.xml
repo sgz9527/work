@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.xqq.dao.IUserDao">
+    <resultMap id="studentList" type="com.xqq.pojo.Student">
+        <id column="studentId" property="studentId"/>
+        <id column="studentAccount" property="studentAccount"/>
+        <id column="studentPassword" property="studentPassword"/>
+        <id column="studentName" property="studentName"/>
+        <id column="type" property="type"/>
+        <id column="studentPic" property="studentPic"/>
+        <id column="studentIntroduce" property="studentIntroduce"/>
+        <id column="commentNum" property="commentNum"/>
+        <id column="belongClass" property="belongClass"/>
+        <id column="belongSchId" property="belongSchId"/>
+        <id column="createDate" property="createDate"/>
+        <id column="studentEmail" property="studentEmail"/>
+        <id column="belongSchName" property="belongSchName"/>
+        <id column="studentSex" property="studentSex"/>
+        <id column="isBelongSch" property="isBelongSch"/>
+        <id column="breakTopicRuleNum" property="breakTopicRuleNum"/>
+        <id column="breakComRuleNum" property="breakComRuleNum"/>
+    </resultMap>
+    <select id="getAllStudent" resultMap="studentList">
+        SELECT * FROM student
+    </select>
+    <select id="LoginStudent" resultType="com.xqq.pojo.Student" parameterType="String" >
+        SELECT * FROM student
+        WHERE
+        studentAccount = #{StudentAccount}
+        AND
+        studentPassword = #{StudentPassword}
+    </select>
+    <select id="selectByAccount" resultType="com.xqq.pojo.Student" parameterType="String" >
+        SELECT * FROM student
+        WHERE
+        studentAccount = #{studentAccount}
+    </select>
+    <select id="selectStudentById" resultType="com.xqq.pojo.Student" parameterType="java.lang.Integer" >
+        SELECT * FROM student
+        WHERE
+        studentId=#{studentId,jdbcType=INTEGER}
+    </select>
+</mapper>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.CheckCourseMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.CheckCourse">
+    <id column="checkId" jdbcType="INTEGER" property="checkId" />
+    <result column="courseName" jdbcType="VARCHAR" property="courseName" />
+    <result column="courseIntroduce" jdbcType="VARCHAR" property="courseIntroduce" />
+    <result column="introduceSrc" jdbcType="VARCHAR" property="introduceSrc" />
+    <result column="courseType" jdbcType="VARCHAR" property="courseType" />
+    <result column="teacherId" jdbcType="INTEGER" property="teacherId" />
+    <result column="belongSchId" jdbcType="INTEGER" property="belongSchId" />
+    <result column="checkState" jdbcType="VARCHAR" property="checkState" />
+    <result column="teacherPhone" jdbcType="VARCHAR" property="teacherPhone" />
+    <result column="posterSrc" jdbcType="VARCHAR" property="posterSrc" />
+    <result column="suplement" jdbcType="VARCHAR" property="suplement" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    checkId, courseName, courseIntroduce, introduceSrc, courseType, teacherId, belongSchId, 
+    checkState, teacherPhone, posterSrc, suplement
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from checkcourse
+    where checkId = #{checkId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTeacherId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from checkcourse
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCheckState" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from checkcourse
+    where checkState='waitCheck'
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from checkcourse
+    where checkId = #{checkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.CheckCourse">
+    insert into checkcourse (checkId, courseName, courseIntroduce, 
+      introduceSrc, courseType, teacherId, 
+      belongSchId, checkState, teacherPhone, 
+      posterSrc, suplement)
+    values (#{checkId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseIntroduce,jdbcType=VARCHAR}, 
+      #{introduceSrc,jdbcType=VARCHAR}, #{courseType,jdbcType=VARCHAR}, #{teacherId,jdbcType=INTEGER}, 
+      #{belongSchId,jdbcType=INTEGER}, #{checkState,jdbcType=VARCHAR}, #{teacherPhone,jdbcType=VARCHAR}, 
+      #{posterSrc,jdbcType=VARCHAR}, #{suplement,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.CheckCourse">
+    insert into checkcourse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="checkId != null">
+        checkId,
+      </if>
+      <if test="courseName != null">
+        courseName,
+      </if>
+      <if test="courseIntroduce != null">
+        courseIntroduce,
+      </if>
+      <if test="introduceSrc != null">
+        introduceSrc,
+      </if>
+      <if test="courseType != null">
+        courseType,
+      </if>
+      <if test="teacherId != null">
+        teacherId,
+      </if>
+      <if test="belongSchId != null">
+        belongSchId,
+      </if>
+      <if test="checkState != null">
+        checkState,
+      </if>
+      <if test="teacherPhone != null">
+        teacherPhone,
+      </if>
+      <if test="posterSrc != null">
+        posterSrc,
+      </if>
+      <if test="suplement != null">
+        suplement,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="checkId != null">
+        #{checkId,jdbcType=INTEGER},
+      </if>
+      <if test="courseName != null">
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntroduce != null">
+        #{courseIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceSrc != null">
+        #{introduceSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="courseType != null">
+        #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        #{belongSchId,jdbcType=INTEGER},
+      </if>
+      <if test="checkState != null">
+        #{checkState,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPhone != null">
+        #{teacherPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="posterSrc != null">
+        #{posterSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="suplement != null">
+        #{suplement,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.CheckCourse">
+    update checkcourse
+    <set>
+      <if test="courseName != null">
+        courseName = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntroduce != null">
+        courseIntroduce = #{courseIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceSrc != null">
+        introduceSrc = #{introduceSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="courseType != null">
+        courseType = #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        teacherId = #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        belongSchId = #{belongSchId,jdbcType=INTEGER},
+      </if>
+      <if test="checkState != null">
+        checkState = #{checkState,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPhone != null">
+        teacherPhone = #{teacherPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="posterSrc != null">
+        posterSrc = #{posterSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="suplement != null">
+        suplement = #{suplement,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where checkId = #{checkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.CheckCourse">
+    update checkcourse
+    set courseName = #{courseName,jdbcType=VARCHAR},
+      courseIntroduce = #{courseIntroduce,jdbcType=VARCHAR},
+      introduceSrc = #{introduceSrc,jdbcType=VARCHAR},
+      courseType = #{courseType,jdbcType=VARCHAR},
+      teacherId = #{teacherId,jdbcType=INTEGER},
+      belongSchId = #{belongSchId,jdbcType=INTEGER},
+      checkState = #{checkState,jdbcType=VARCHAR},
+      teacherPhone = #{teacherPhone,jdbcType=VARCHAR},
+      posterSrc = #{posterSrc,jdbcType=VARCHAR},
+      suplement = #{suplement,jdbcType=VARCHAR}
+    where checkId = #{checkId,jdbcType=INTEGER}
+  </update>
+</mapper>

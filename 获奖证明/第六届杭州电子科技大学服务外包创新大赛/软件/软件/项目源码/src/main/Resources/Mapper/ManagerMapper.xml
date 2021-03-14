@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.ManagerMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Manager">
+    <id column="ManagerId" jdbcType="INTEGER" property="managerId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="ManagerName" jdbcType="VARCHAR" property="managerName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ManagerId, account, password, ManagerName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager
+    where ManagerId = #{managerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByAccountAndPassword" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM manager
+    where account=#{account}
+    and
+    password=#{password}
+  </select>
+  <select id="selectByAccount" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM manager
+    where account=#{account}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from manager
+    where ManagerId = #{managerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Manager">
+    insert into manager (ManagerId, account, password, 
+      ManagerName)
+    values (#{managerId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{managerName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Manager">
+    insert into manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="managerId != null">
+        ManagerId,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="managerName != null">
+        ManagerName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="managerId != null">
+        #{managerId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null">
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Manager">
+    update manager
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null">
+        ManagerName = #{managerName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ManagerId = #{managerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Manager">
+    update manager
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      ManagerName = #{managerName,jdbcType=VARCHAR}
+    where ManagerId = #{managerId,jdbcType=INTEGER}
+  </update>
+</mapper>

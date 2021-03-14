@@ -1,0 +1,640 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#F5F2F2;
+}
+/*导航栏开始*/
+.nav{
+	width:100%;
+	height:auto;
+}
+div.head{
+	position: fixed;
+	top:0px;
+	width: 63%;
+	height: 36px;
+	float:left;
+	left:8px;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead{
+	position:fixed;
+	top:0px;
+	width: 37%;
+	height: 36px;
+	right:8px;
+	float:left;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead input.text{
+	background-color: beige;
+	height:32px;
+	width:51%;
+	margin-top:2px;
+	margin-left:0px;
+	font-size:14px;
+	color:darkgrey;
+}
+
+div.rightofhead input.searchbutton{
+	width:15%;
+	background-color: #F30A0E;
+	color:aliceblue;
+	margin-top:0px;
+	height:32px;
+	border-style:none;
+	margin-left:0px;
+}
+div.rightofhead input.searchbutton:hover,div.rightofhead input.searchbutton:active{
+	background-color:  firebrick;
+}
+div.rightofhead div a:link,div.rightofhead div a:visited{
+	text-align: center;
+	color: beige;
+	font-size:16px;
+	text-decoration: none;
+	
+}
+div.rightofhead div a:hover,div.rightofhead div a:active{
+	color:#16E494;
+	font-size: 17px;
+	text-decoration: underline;
+}
+div.head ul{
+	padding-left: 0px;
+	margin: auto;
+	width: 99.5%;
+	height:40px;
+	float: left;
+	position: absolute;
+}
+div.head ul li{
+	display: inline;
+	margin-left: 10px;
+	font-size: 28px;
+	color:aquamarine;
+	height:inherit;
+}
+div.head ul li:hover,div.head ul li:active{
+	background-color: grey;
+}
+div.head ul li a{
+	font-size: 20px;
+	text-decoration: none;
+}
+div.head ul li a:link,div.head ul li a:visited{
+	color:#C5BBBB;
+}
+div.head ul li a:hover,div.head ul li a:active{
+	color:ghostwhite;
+	text-decoration: underline;
+}/*导航栏结束*/
+.title{
+	margin-top:40px;
+	width:100%;
+	height:70px;
+}
+.coursename{
+	margin-left:100px;
+	width:29%;
+	height:inherit;
+	float:left;
+	border-left-style:solid;
+	border-left-color:greenyellow;
+	border-left-width:thin;
+	padding:8px;
+}
+#teacher span{
+	margin-left:17px;
+}
+.functionlist{
+	background-color:rgba(211,200,200,0.2);
+	width:21%;
+	height:600px;
+	margin-left:7px;
+	float:left;
+}
+.displays{
+	background-color:white;
+	width:77%;
+	float:left;
+	height:auto;
+}
+.greens{
+	background:rgba(67,208,51,0.7);
+	margin-left:8%;
+	width:81%;
+	height:70px;
+	text-align:left;
+	color:black;
+	font-size:25px;
+	padding-top:14px;
+	border-bottom-style:ridge;
+	border-bottom-color:rgba(239,231,232,0.5);
+}
+.whites{
+	margin-left:8%;
+	width:81%;
+	height:70px;
+	text-align:left;
+	color:black;
+	font-size:25px;
+	padding-top:14px;
+	background:white;
+	border-bottom-style:ridge;
+	border-bottom-color:rgba(239,231,232,0.5);
+}
+.whites:hover{
+	background:rgba(228,221,39,1.00);
+}
+/*公告开始*/
+.noticedisplay{
+	width:100%;
+	height:auto;
+	padding-top:20px;
+}
+.entry{
+	width:80%;
+	height:80px;
+	margin-left:5%;
+	margin-right:10%;
+	background:rgba(235,224,224,1.00);
+}
+.noti{
+	width:48%;
+	font-size:23px;
+	color:black;
+	height:40px;
+	text-align:center;
+	margin-top:20px;
+	margin-left:2%;
+}
+#alreadypro:hover{
+	background:green;
+	cursor:pointer;
+	color:white;
+}
+#waitpro:hover{
+	background:red;
+	cursor:pointer;
+	color:white;
+}
+.noticedetail{
+	width:80%;
+	margin-left:5%;
+	margin-right:10%;
+	height:auto;
+}
+.nonenotice{
+	margin-top:20px;
+	margin-left:30%;
+	margin-right:30%;
+	width:40%;
+	height:40px;
+	color:black;
+	font-size:23px;
+	text-align:center;
+	display:none;
+}
+.onenotice{
+	width:100%;
+	height:auto;
+	background: rgba(248,222,222,0.3);
+	margin-top:20px;
+}
+.onenotice p{
+	color:darkgrey;
+}
+textarea{
+	outline: none;
+}
+textarea:focus{
+	outline: none;
+}
+#gobacknoticeview:hover{
+	cursor:pointer;
+	text-decoration: underline;
+}
+.addnoticeoption{
+	width:80%;
+	margin-left:5%;
+	height:auto;
+	margin-top:30px;
+}
+/*公告结束*/
+
+
+
+
+
+
+
+/*评估标准开始*/
+.evaluationdisplay{
+	width:100%;
+	height:auto;
+	display:none;
+}
+/*评估标准结束*/
+
+
+
+
+
+
+
+/*课件开始*/
+.coursewaredisplay{
+	width:100%;
+	height:auto;
+	display:none;
+}
+.coursewaretitle{
+	width:100%;
+	height:auto;
+	color:black;
+	font-size:23px;
+	text-align:left;
+	padding-top:15px;
+	border-bottom-style:ridge;
+	border-bottom-color:rgba(239,231,232,0.5);
+	margin-left:24px;
+	
+}
+.submitCourseWare{
+	width:100%;
+	height:auto;
+	display:none;
+	color:black;
+	font-size:20px;
+	padding-top:15px;
+}
+.coursewaredetail{
+	width:97%;
+	height:auto;
+	margin-left:3%;
+}
+.courseutil{
+	width:100%;
+	height:auto;
+}
+.utiltitle{
+	width:100%;
+	height:60px;
+	padding:15px;
+	font-size:18px;
+	color:grey;	
+	background:rgba(210,249,237,0.5);
+	margin-top:10px;
+}
+.utiltitle:hover{
+	background:rgba(210,249,237,1.00);
+}
+.utildetails{
+	width:100%;
+	height:auto;
+	display:none;
+}
+.utildetail{
+	width:100%;
+	height:60px;
+	padding:15px;
+	font-size:18px;
+	color:black;
+}
+.utildetail:hover{
+	background:rgba(229,220,220,0.2);
+}
+.videoview{
+	width:97%;
+	height:auto;
+	margin-left:3%;
+	display:none;
+}
+.videos{
+	width:60%;
+	height:auto;
+	margin-left:3%;
+	margin-top:30px;
+	float:left;
+}
+.avideo{
+	width:100%;
+	height:340px;
+	margin-bottom: 30px;
+}
+.categories{
+	margin-left:1%;
+	width:36%;
+	float:left;
+	height:auto;
+	margin-top:30px;
+}
+.group{
+	width:100%;
+	height:auto;
+	color:darkgrey;
+	text-align:left;
+}
+.categorytitle{
+	width:100%;
+	height:60px;
+	padding-top:8px;
+	color:black;
+	font-size:20px;
+	margin-bottom:10px;
+	background:rgba(164,229,212,0.3);
+}
+.categorytitle:hover{
+	background:rgba(164,229,212,0.9);
+}
+.categorydetails{
+	width:100%;
+	height:auto;
+}
+.categorydetail{
+	width:100%;
+	height:40px;
+	margin-bottom: 10px;
+	background:white;
+}
+.categorydetail:hover{
+	background:rgba(203,196,196,0.2);
+}
+/*课件结束*/
+
+
+
+
+
+
+
+
+/*测验作业开始*/
+.testdisplay{
+	width:85%;
+	height:auto;
+	margin-left:3%;
+	display:none;
+}
+.testrough{
+	width:100%;
+	height:auto;
+}
+.tests{
+	width:100%;
+	height:auto;
+	margin-bottom:60px;
+}
+.testtitle{
+	width:100%;
+	text-align:left;
+	height:40px;
+	padding-top:13px;
+	font-size:20px;
+	color:black;
+	background:white;
+}
+.testdetails{
+	width:100%;
+	height:auto;margin-bottom:30px;
+}
+.testdetailtitle{
+	width:100%;
+	height:40px;
+	text-align:left;
+	font-size:16px;
+	color:black;
+	background-color:rgba(190,233,227,0.4);
+}
+.testdetailtitle:hover{
+	background-color:rgba(190,233,227,0.8);
+}
+.testdetail{
+	width:100%;
+	height:130px;
+	background:rgba(241,235,235,0.8);
+	color:black;
+}
+.testdetail span{
+	display:block;
+	color:black;
+	padding-top:5px;
+}
+.gotofinish{
+	color:white;
+	background-color:rgba(131,207,32,1.00);
+	text-align:center;
+	padding-top:4px;
+	font-size:15px;
+	width:115px;
+	height:38px;
+	border-radius: 4px;
+	display:inline;
+	margin-left:310px;
+	margin-top:1px;
+	border-style:none;
+}
+.gotofinish:hover{
+	background-color:rgba(50,170,15,1.00);
+}
+.testentry{
+	width:100%;
+	height:auto;
+	margin-bottom:60px;
+	display:none;
+}
+.testentrytitle{
+	width:100%;
+	text-align:left;
+	height:40px;
+	padding-top:13px;
+	font-size:20px;
+	color:black;
+	background:white;
+}
+.introducetest{
+	margin-top:20px;
+	background:rgba(240,215,45,0.3);
+	width:100%;
+	height:70px;
+}
+.begintest{
+	color:white;
+	background-color:rgba(131,207,32,1.00);
+	text-align:center;
+	padding-top:4px;
+	font-size:15px;
+	width:115px;
+	height:38px;
+	border-radius: 4px;
+	margin-top:1px;
+	border-style:none;
+	display:block;
+}
+.begintest:hover{
+	background-color:rgba(50,170,15,1.00);
+}
+.prohomework{
+	height:auto;
+	width:100%;
+	background:white;
+	display:none;
+}
+.writeTestDetail{
+	height:auto;
+	width:100%;
+	padding:7px;
+}
+.addOneTestType{
+	margin-top: 10PX;
+	height:50px;
+	width:100%;
+}
+.choose{
+	height:auto;
+	width:100%;
+	background:rgba(241,241,150,0.18);
+	margin-top:20px;
+	padding:7px;
+}
+.judge{
+	height:auto;
+	width:100%;
+	margin-top:20px;
+	padding:7px;
+}
+.fillin{
+	height:auto;
+	width:100%;
+	margin-top:20px;
+	padding:7px;
+}
+.alltestpaper{
+	border-style:solid;
+	border-color:red;
+	border-width:thin;
+	padding:7px;
+}
+.oneTestType{
+	margin-top:60px;
+	border-style:solid;
+	border-color:black;
+	border-width:thin;
+}
+.chooseModal{
+	height:auto;
+	width:100%;
+	padding:7px;
+	border-style:solid;
+	border-color:blue;
+	border-width:thin;
+	margin-top:10px;
+}
+.judgeModal{
+	height:auto;
+	width:100%;
+	padding:7px;
+	border-style:solid;
+	border-color:blue;
+	border-width:thin;
+	margin-top:10px;
+}
+.fillinModal{
+	height:auto;
+	width:100%;
+	padding:7px;
+	border-style:solid;
+	border-color:blue;
+	border-width:thin;
+	margin-top:10px;
+}
+/*测验作业结束*/
+
+
+
+
+
+
+
+
+/*考试开始*/
+.examdisplay{
+	width:100%;
+	height:auto;
+	display:none;
+}
+/*考试结束*/
+
+
+
+
+
+
+
+
+/*讨论区开始*/
+.discussdisplay{
+	width:100%;
+	height:auto;
+	display:none;
+}
+.begindiscuss{
+	color:white;
+	background-color:rgba(131,207,32,1.00);
+	text-align:center;
+	padding-top:4px;
+	font-size:15px;
+	width:115px;
+	height:38px;
+	border-radius: 4px;
+	margin-top:1px;
+	border-style:none;
+	display:block;
+	margin-left:2%;
+}
+.begindiscuss:hover{
+	background-color:rgba(50,170,15,1.00);
+}
+.discussrough{
+	width:100%;
+	height:auto;
+}
+.sorts{
+	color:black;
+	font-size:16px;
+	padding-left:75%;
+}
+.sorts span:hover{
+	cursor:pointer;
+}
+.adiscussrough{
+	height:73px;
+	width:94%;
+	margin-left:3%;
+	margin-right:3%;
+	border-bottom-style:solid;
+	border-bottom-color:rgba(231,224,224,1.00);
+	border-bottom-width: thin;
+	border-top-style:solid;
+	border-top-color:rgba(231,224,224,1.00);
+	border-top-width: thin; 
+	padding-top:7px;
+}
+.adiscussrough span{
+	font-size:17px;
+	color:black;
+	height:auto;
+	text-align:left;
+	display:block;
+	margin-top:5px;
+}
+.adiscussrough span span:hover{
+	cursor:pointer;
+}
+/*讨论区结束*/
+
+
+

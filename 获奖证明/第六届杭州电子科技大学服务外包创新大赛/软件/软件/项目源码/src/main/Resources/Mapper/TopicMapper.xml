@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.TopicMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Topic">
+  <id column="topicId" jdbcType="INTEGER" property="topicId" />
+  <result column="belongCourseId" jdbcType="INTEGER" property="belongCourseId" />
+  <result column="topicDetail" jdbcType="VARCHAR" property="topicDetail" />
+  <result column="topicTime" jdbcType="VARCHAR" property="topicTime" />
+  <result column="topicWritterId" jdbcType="INTEGER" property="topicWritterId" />
+  <result column="topicWritterType" jdbcType="SMALLINT" property="topicWritterType" />
+  <result column="reportNum" jdbcType="INTEGER" property="reportNum" />
+  <result column="isForbiden" jdbcType="SMALLINT" property="isForbiden" />
+</resultMap>
+  <sql id="Base_Column_List">
+    topicId, belongCourseId, topicDetail, topicTime, topicWritterId, topicWritterType,reportNum,isForbiden
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from topic
+    where topicId = #{topicId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from topic
+    where belongCourseId = #{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from topic
+    where topicWritterId = #{studentId,jdbcType=INTEGER}
+    and  topicWritterType=0
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from topic
+    where topicId = #{topicId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Topic">
+    insert into topic (topicId, belongCourseId, topicDetail, 
+      topicTime, topicWritterId, topicWritterType,reportNum,isForbiden
+      )
+    values (#{topicId,jdbcType=INTEGER}, #{belongCourseId,jdbcType=INTEGER}, #{topicDetail,jdbcType=VARCHAR}, 
+      #{topicTime,jdbcType=VARCHAR}, #{topicWritterId,jdbcType=INTEGER}, #{topicWritterType,jdbcType=SMALLINT},
+      #{reportNum,jdbcType=INTEGER},#{isForbiden,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Topic" useGeneratedKeys="true" keyProperty="topicId">
+    insert into topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicId != null">
+        topicId,
+      </if>
+      <if test="belongCourseId != null">
+        belongCourseId,
+      </if>
+      <if test="topicDetail != null">
+        topicDetail,
+      </if>
+      <if test="topicTime != null">
+        topicTime,
+      </if>
+      <if test="topicWritterId != null">
+        topicWritterId,
+      </if>
+      <if test="topicWritterType != null">
+        topicWritterType,
+      </if>
+      <if test="reportNum != null">
+        reportNum,
+      </if>
+      <if test="isForbiden != null">
+        isForbiden,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicId != null">
+        #{topicId,jdbcType=INTEGER},
+      </if>
+      <if test="belongCourseId != null">
+        #{belongCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="topicDetail != null">
+        #{topicDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="topicTime != null">
+        #{topicTime,jdbcType=VARCHAR},
+      </if>
+      <if test="topicWritterId != null">
+        #{topicWritterId,jdbcType=INTEGER},
+      </if>
+      <if test="topicWritterType != null">
+        #{topicWritterType,jdbcType=SMALLINT},
+      </if>
+      <if test="reportNum != null">
+        #{reportNum,jdbcType=INTEGER}
+      </if>
+      <if test="isForbiden != null">
+        #{isForbiden,jdbcType=SMALLINT}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Topic">
+    update topic
+    <set>
+      <if test="belongCourseId != null">
+        belongCourseId = #{belongCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="topicDetail != null">
+        topicDetail = #{topicDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="topicTime != null">
+        topicTime = #{topicTime,jdbcType=VARCHAR},
+      </if>
+      <if test="topicWritterId != null">
+        topicWritterId = #{topicWritterId,jdbcType=INTEGER},
+      </if>
+      <if test="topicWritterType != null">
+        topicWritterType = #{topicWritterType,jdbcType=SMALLINT},
+      </if>
+      <if test="reportNum != null">
+        #{reportNum,jdbcType=INTEGER}
+      </if>
+      <if test="isForbiden != null">
+        #{isForbiden,jdbcType=SMALLINT}
+      </if>
+    </set>
+    where topicId = #{topicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Topic">
+    update topic
+    set belongCourseId = #{belongCourseId,jdbcType=INTEGER},
+      topicDetail = #{topicDetail,jdbcType=VARCHAR},
+      topicTime = #{topicTime,jdbcType=VARCHAR},
+      topicWritterId = #{topicWritterId,jdbcType=INTEGER},
+      topicWritterType = #{topicWritterType,jdbcType=SMALLINT},
+      reportNum= #{reportNum,jdbcType=INTEGER},
+      isForbiden= #{isForbiden,jdbcType=SMALLINT}
+    where topicId = #{topicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateReportNum" parameterType="java.lang.Integer">
+    update topic
+    set reportNum=reportNum+1
+    where topicId=#{topicId,jdbcType=INTEGER}
+  </update>
+</mapper>

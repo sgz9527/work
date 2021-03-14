@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.Teach_courseMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Teach_courseKey">
+    <id column="teacherId" jdbcType="INTEGER" property="teacherId" />
+    <id column="courseId" jdbcType="INTEGER" property="courseId" />
+    <result column="examAgree" jdbcType="TINYINT" property="examAgree" />
+    <result column="examArgumentSuplement" jdbcType="VARCHAR" property="examArgumentSuplement" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    teacherId, courseId, examAgree, examArgumentSuplement
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.xqq.pojo.Teach_courseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teach_course
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from teach_course
+    where courseId=#{courseid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTeacherIdAndCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from teach_course
+    where teacherId=#{teacherId,jdbcType=INTEGER}
+    and
+    courseId=#{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTeacherId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from teach_course
+    where teacherId=#{teacherId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.xqq.pojo.Teach_courseKey">
+    delete from teach_course
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Teach_courseKey">
+    insert into teach_course (teacherId, courseId, examAgree, 
+      examArgumentSuplement)
+    values (#{teacherId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{examAgree,jdbcType=TINYINT}, 
+      #{examArgumentSuplement,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Teach_courseKey">
+    insert into teach_course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teacherId != null">
+        teacherId,
+      </if>
+      <if test="courseId != null">
+        courseId,
+      </if>
+      <if test="examAgree != null">
+        examAgree,
+      </if>
+      <if test="examArgumentSuplement != null">
+        examArgumentSuplement,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="examAgree != null">
+        #{examAgree,jdbcType=TINYINT},
+      </if>
+      <if test="examArgumentSuplement != null">
+        #{examArgumentSuplement,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Teach_courseKey">
+    update teach_course
+    <set>
+      <if test="examAgree != null">
+        examAgree = #{examAgree,jdbcType=TINYINT},
+      </if>
+      <if test="examArgumentSuplement != null">
+        examArgumentSuplement = #{examArgumentSuplement,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Teach_courseKey">
+    update teach_course
+    set examAgree = #{examAgree,jdbcType=TINYINT},
+      examArgumentSuplement = #{examArgumentSuplement,jdbcType=VARCHAR}
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+      and courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.MessageMapper">
+  <resultMap id="stuCourseMap" type="com.xqq.pojo.Stu_course">
+    <id column="studentId" jdbcType="INTEGER" property="studentId" />
+    <id column="courseId" jdbcType="INTEGER" property="courseId" />
+    <id column="chooseTime" jdbcType="DATE" property="chooseTime" />
+  </resultMap>
+  <resultMap id="commentMap" type="com.xqq.pojo.Comment">
+    <id column="commentId" jdbcType="INTEGER" property="commentId" />
+    <result column="commentTime" jdbcType="VARCHAR" property="commentTime" />
+    <result column="commentInfo" jdbcType="VARCHAR" property="commentInfo" />
+    <result column="commentWritterId" jdbcType="INTEGER" property="commentWritterId" />
+    <result column="commentWritterType" jdbcType="SMALLINT" property="commentWritterType" />
+    <result column="belongTopicId" jdbcType="INTEGER" property="belongTopicId" />
+    <result column="replyToId" jdbcType="INTEGER" property="replyToId" />
+    <result column="reportNum" jdbcType="INTEGER" property="reportNum" />
+    <result column="isForbiden" jdbcType="SMALLINT" property="isForbiden" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Message">
+    <id column="messageId" jdbcType="INTEGER" property="messageId" />
+    <result column="messageType" jdbcType="SMALLINT" property="messageType" />
+    <result column="messageCourseId" jdbcType="INTEGER" property="messageCourseId" />
+    <result column="messageTopicId" jdbcType="INTEGER" property="messageTopicId" />
+    <result column="messageCommentId" jdbcType="INTEGER" property="messageCommentId" />
+    <result column="messageTestId" jdbcType="INTEGER" property="messageTestId" />
+    <result column="messageExamId" jdbcType="INTEGER" property="messageExamId" />
+    <result column="messageStudentId" jdbcType="INTEGER" property="messageStudentId" />
+    <result column="messageForbidenBeginTime" jdbcType="TIMESTAMP" property="messageForbidenBeginTime" />
+    <result column="messageForbidenEndTime" jdbcType="TIMESTAMP" property="messageForbidenEndTime" />
+    <result column="messageExcerciseId" jdbcType="INTEGER" property="messageExcerciseId" />
+    <result column="messageTime" jdbcType="TIMESTAMP" property="messageTime" />
+    <association javaType="com.xqq.pojo.Stu_course" property="stuCourse" resultMap="stuCourseMap" />
+    <association javaType="com.xqq.pojo.Comment" property="comment" resultMap="commentMap" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    messageId, messageType, messageCourseId, messageTopicId, messageCommentId, messageTestId, 
+    messageExamId, messageStudentId, messageForbidenBeginTime, messageForbidenEndTime, 
+    messageExcerciseId, messageTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from message
+    where messageId = #{messageId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByMessageTypeAndTestId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from message
+    where messageType = #{messageType,jdbcType=SMALLINT}
+    and messageTestId = #{testId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByMessageTypeAndExamId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from message
+    where messageType = #{messageType,jdbcType=SMALLINT}
+    and messageExamId = #{examId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from message
+    where messageCourseId IN
+    ( select courseId from stu_course where studentId=#{studentId,jdbcType=INTEGER})
+    and messageType IN (1,2,3,6,7,8)
+    UNION
+    SELECT
+    <include refid="Base_Column_List" />
+    from message where messageStudentId=#{studentId,jdbcType=INTEGER}
+    and messageType IN (9,10)
+    UNION
+    SELECT
+    <include refid="Base_Column_List" />
+    from message where message.messageCommentId IN(
+    select commentId from comment where comment.replyToId IN(
+    select commentId from comment where comment.commentWritterId=#{studentId,jdbcType=INTEGER}
+    )
+    )
+    and messageType IN (4,5)
+  </select>
+  <select id="selectByMessageTypeAndStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from message where messageType=9 and messageStudentId=#{studentId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from message
+    where messageId = #{messageId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByTime">
+    delete from message
+    where (UNIX_TIMESTAMP(now()) - UNIX_TIMESTAMP(messageTime)) >(30*60*24*60)
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Message">
+    insert into message (messageId, messageType, messageCourseId, 
+      messageTopicId, messageCommentId, messageTestId, 
+      messageExamId, messageStudentId, messageForbidenBeginTime, 
+      messageForbidenEndTime, messageExcerciseId, 
+      messageTime)
+    values (#{messageId,jdbcType=INTEGER}, #{messageType,jdbcType=SMALLINT}, #{messageCourseId,jdbcType=INTEGER}, 
+      #{messageTopicId,jdbcType=INTEGER}, #{messageCommentId,jdbcType=INTEGER}, #{messageTestId,jdbcType=INTEGER}, 
+      #{messageExamId,jdbcType=INTEGER}, #{messageStudentId,jdbcType=INTEGER}, #{messageForbidenBeginTime,jdbcType=TIMESTAMP}, 
+      #{messageForbidenEndTime,jdbcType=TIMESTAMP}, #{messageExcerciseId,jdbcType=INTEGER}, 
+      #{messageTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Message">
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        messageId,
+      </if>
+      <if test="messageType != null">
+        messageType,
+      </if>
+      <if test="messageCourseId != null">
+        messageCourseId,
+      </if>
+      <if test="messageTopicId != null">
+        messageTopicId,
+      </if>
+      <if test="messageCommentId != null">
+        messageCommentId,
+      </if>
+      <if test="messageTestId != null">
+        messageTestId,
+      </if>
+      <if test="messageExamId != null">
+        messageExamId,
+      </if>
+      <if test="messageStudentId != null">
+        messageStudentId,
+      </if>
+      <if test="messageForbidenBeginTime != null">
+        messageForbidenBeginTime,
+      </if>
+      <if test="messageForbidenEndTime != null">
+        messageForbidenEndTime,
+      </if>
+      <if test="messageExcerciseId != null">
+        messageExcerciseId,
+      </if>
+      <if test="messageTime != null">
+        messageTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=SMALLINT},
+      </if>
+      <if test="messageCourseId != null">
+        #{messageCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTopicId != null">
+        #{messageTopicId,jdbcType=INTEGER},
+      </if>
+      <if test="messageCommentId != null">
+        #{messageCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTestId != null">
+        #{messageTestId,jdbcType=INTEGER},
+      </if>
+      <if test="messageExamId != null">
+        #{messageExamId,jdbcType=INTEGER},
+      </if>
+      <if test="messageStudentId != null">
+        #{messageStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="messageForbidenBeginTime != null">
+        #{messageForbidenBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageForbidenEndTime != null">
+        #{messageForbidenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageExcerciseId != null">
+        #{messageExcerciseId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTime != null">
+        #{messageTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Message">
+    update message
+    <set>
+      <if test="messageType != null">
+        messageType = #{messageType,jdbcType=SMALLINT},
+      </if>
+      <if test="messageCourseId != null">
+        messageCourseId = #{messageCourseId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTopicId != null">
+        messageTopicId = #{messageTopicId,jdbcType=INTEGER},
+      </if>
+      <if test="messageCommentId != null">
+        messageCommentId = #{messageCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTestId != null">
+        messageTestId = #{messageTestId,jdbcType=INTEGER},
+      </if>
+      <if test="messageExamId != null">
+        messageExamId = #{messageExamId,jdbcType=INTEGER},
+      </if>
+      <if test="messageStudentId != null">
+        messageStudentId = #{messageStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="messageForbidenBeginTime != null">
+        messageForbidenBeginTime = #{messageForbidenBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageForbidenEndTime != null">
+        messageForbidenEndTime = #{messageForbidenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageExcerciseId != null">
+        messageExcerciseId = #{messageExcerciseId,jdbcType=INTEGER},
+      </if>
+      <if test="messageTime != null">
+        messageTime = #{messageTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where messageId = #{messageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Message">
+    update message
+    set messageType = #{messageType,jdbcType=SMALLINT},
+      messageCourseId = #{messageCourseId,jdbcType=INTEGER},
+      messageTopicId = #{messageTopicId,jdbcType=INTEGER},
+      messageCommentId = #{messageCommentId,jdbcType=INTEGER},
+      messageTestId = #{messageTestId,jdbcType=INTEGER},
+      messageExamId = #{messageExamId,jdbcType=INTEGER},
+      messageStudentId = #{messageStudentId,jdbcType=INTEGER},
+      messageForbidenBeginTime = #{messageForbidenBeginTime,jdbcType=TIMESTAMP},
+      messageForbidenEndTime = #{messageForbidenEndTime,jdbcType=TIMESTAMP},
+      messageExcerciseId = #{messageExcerciseId,jdbcType=INTEGER},
+      messageTime = #{messageTime,jdbcType=TIMESTAMP}
+    where messageId = #{messageId,jdbcType=INTEGER}
+  </update>
+</mapper>

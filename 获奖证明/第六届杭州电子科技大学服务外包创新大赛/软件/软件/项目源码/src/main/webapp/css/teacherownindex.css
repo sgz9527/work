@@ -1,0 +1,468 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	overflow-x:hidden;
+}
+.head{
+	width:100%;
+	height:80px;
+	background:white;
+	position:relative;
+}
+.lefthead{
+	text-align:center;
+	width:50%;
+	height:100%;
+	float:left;
+}
+.righthead{
+	width:50%;
+	height:100%;
+	float:left;
+}
+.nav{
+	float:left;
+	margin-left:25px;
+	text-align: center;
+	padding:23px;
+	width:110px;
+	height:100%;
+	
+}
+.nav:hover{
+	background:red;
+	
+}
+.navs{
+	margin-top:2px;
+	height:90%;
+	width:90%;
+}
+.nav a:link,.nav a:visited{
+	font-size:20px;
+	color:grey;
+	text-decoration: none;
+}
+.nav a:hover,.nav a:active{
+	color:white;
+	text-decoration:none;
+}
+.bgm{
+	width:100%;
+	height:320px;
+	position:relative;
+	background-image:url(../img/collection-top.jpg);
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.account{
+	position:absolute;
+	top:80px;
+	left:100px;
+	width:82%;
+	height:232px;
+}
+.account1{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:inherit;
+	background:rgba(6,1,1,0.5);
+	color:white;
+}
+.leftaccount{
+	margin-top:30px;
+	height:80%;
+	width:60%;
+	float:left;
+	color:white;
+}
+.rightaccount{
+	color:white;
+	margin-top:5px;
+	height:90%;
+	width:25%;
+	float:right;
+	font-size:15px;
+}
+.schoolinfo{
+	color:aqua;
+	width:80%;
+	height:40px;
+	margin-left:50px;
+	
+}
+.pic{
+	float:left;
+	width:50%;
+	height:inherit;
+}
+#alreadycourse{
+	text-align: center;
+	margin-bottom: 5px;
+}
+#alreadycertify{
+	text-align:center;
+	margin-bottom: 5px;
+}
+.menu{
+	width:100%;
+	height:80px;
+	position:relative;
+	background-color:rgba(140,136,136,0.7);
+}
+.menus{
+	position:relative;
+	top:20px;
+	left:120px;
+	height:70px;
+	width:80%;
+}
+.menus li{
+	float:left;
+	display:inline;
+	margin-left:80px;
+	color:white;
+}
+.menus li a{
+	color:white;
+}
+.menus li a:link{
+	margin-top:20px;
+	color:white;
+	text-decoration: none;
+	
+}
+.menus li a:hover,.menus li a:active,.menus li a:visited{
+	text-decoration: none;
+	font-size:18px;
+}
+.detail{
+	position:relative;
+	width:100%;
+	height:auto;
+}
+/*我的课程部分开始*/
+.mycourseinfo{
+	display:none;
+	width:100%;
+	height:auto;
+	background-color:rgba(224,224,224,1.00);
+	
+}
+.coursehead{
+	height:60px;
+	width:100%;
+	background-color:aliceblue;
+	
+}
+#countofmaster{
+	font-size:17px;
+	color:orange;
+}
+#coursetype li{
+	margin-top:20px;
+	font-size:20px;
+	width:20%;
+	margin-left:20px;
+	display:inline;
+}
+#coursetype li:hover,#coursetype li:visited{
+	color:orange;
+	cursor:pointer;
+}
+.shiftdiv{
+	width:100%;
+	position:relative;
+	height:auto;
+}
+.coursedetail{
+	margin-top:40px;
+	width:60%;
+	margin-left:20%;
+	margin-right:20%;
+	height:170px;
+	position:relative;
+	background-color:white;
+	/*display: none;*/
+}
+.nonecourse{
+	margin-left:40%;
+	margin-right:40%;
+	width:20%;
+	height:40px;
+	margin-top:65px;
+	background:red;
+	text-align: center;
+	color:white;
+	padding-top:10px;
+	position:relative;
+	display:none;
+}
+.coursepic{
+	width:37%;
+	margin-top:4px;
+	height:95%;
+	float:left;
+	padding:8px;
+}
+.rightofcoursepic{
+	width:63%;
+	margin-top:1px;
+	height:97%;
+	float:left;
+}
+.coursename{
+	height:30%;
+	text-align: left;
+	width:100%;
+	color:black;
+}
+.coursedisplay{
+	width:100%;
+	height:55%;
+}
+.coursebar{
+	width:50%;
+	height:15px;
+	background-color:rgba(204,198,198,0.82);
+	margin-top:64px;
+	float:left;
+}
+.courseprogress{
+	width:5%;
+	margin-top:60px;
+	float:left;
+	color:black;
+	font-size:20px;
+}
+.courseprogress span{
+	font-size:20px;
+	color:orange;
+}
+.courseDirectoryEntry{
+	width:19%;
+	height:31px;
+	margin-top:56px;
+	background-color:red;
+	float:left;
+	margin-left:26px;
+	color:white;
+	text-align: center;
+	padding-top:8px;
+}
+.courseDirectoryEntry a:link,.courseDirectoryEntry a:visited{
+	color:white;
+	text-decoration: none;
+}
+.courseDirectoryEntry a:hover,.courseDirectoryEntry a:active{
+	color:white;
+	font-size:15px;
+	text-decoration: none;
+}
+.coursedelete{
+	width:19%;
+	height:31px;
+	margin-top:56px;
+	background-color:red;
+	float:left;
+	margin-left:7px;
+	color:white;
+	text-align: center;
+	padding-top:8px;
+}
+.coursedelete:hover{
+	font-size:15px;
+}
+.shift{
+	width:60%;
+	margin-left:20%;
+	margin-right:20%;
+	margin-top:15px;
+	background-color:white;
+	height:35px;
+}
+/*我的课程显示结束*/
+
+
+
+
+/*综合实训开始*/
+.myexcerciseinfo{
+	display:none;
+	height:300px;
+	background-color:rgba(252,247,247,1.00);
+}
+/*综合实训结束*/
+
+
+
+
+/*数据分析开始*/
+.myscoreinfo{
+	display: none;
+	height:auto;
+	background-color:rgba(255,255,255,1.00);
+}
+.nonescore{
+	display:none;
+	text-align: center;
+	padding-top:100px;
+	color:black;
+}
+.scorehead{
+	height:60px;
+	width:100%;
+	background-color:aliceblue;
+}
+.scorehead li{
+	display:inline;
+	list-style: none;
+	font-size:17px;
+	margin-left:5px;
+}
+#countofscore{
+	color:orange;
+}
+.listofscore{
+	width:100%;
+	height:300px;
+}
+.listofscore table tr{
+	height:40px;
+}
+.listofscore table tr td:hover{
+	background:rgba(158,204,192,1.00);
+}
+/*数据分析结束*/
+
+
+
+
+
+/*任务管理开始*/
+.mytaskinfo{
+	height:650px;
+	background-color:rgba(252,247,247,1.00);
+}
+.nonetask{
+	margin-left:38%;
+	margin-right:38%;
+	width:24%;
+	height:60px;
+	margin-top:10px;
+	text-align:center;
+	padding-top:7px;
+}
+.releasetasks{
+	width:100%;
+	height:auto;
+}
+.task{
+	width:100%;
+	height:400px;
+	
+}
+.tasktitle{
+	width:100%;
+	height:70px;
+	font-size:19px;
+}
+.lefttasktitle{
+	text-align:center;
+	float:left;
+	width:30%;
+	margin-left:190px;
+	margin-top:30px;
+}
+.righttasktitle{
+	text-align:center;
+	float:left;
+	width:30%;
+	margin-left:190px;
+	margin-top:30px;
+}
+.lefttasktitle:hover{
+	background:green;
+	cursor:pointer;
+}
+.righttasktitle:hover{
+	background:red;
+	cursor:pointer;
+}
+.finish{
+	width:100%;
+	height:322px;
+}
+.wait{
+	width:100%;
+	height:322px;
+	display:none;
+}
+.updates{
+	color:green;
+}
+.updates:hover{
+	cursor:pointer;
+	text-decoration: underline;
+}
+.taskname{
+	color:blue;
+}
+.taskname:hover{
+	text-decoration: underline;
+	background: rgba(168,239,151,1.00);
+}
+.addtask{
+	width:100%;
+	height:auto;
+	display:none;
+}
+.addtaskbody{
+	width:100%;
+	height:auto;
+	margin-top:30px;
+	background:white;
+	color:black;
+}
+#gobacktask:hover{
+	cursor:pointer;
+}
+.addtaskbody{
+	width:100%;
+	height:auto;
+}
+/*任务管理结束*/
+
+
+
+
+/*能力档案开始*/
+.mycapacityinfo{
+	display:none;
+	width:100%;
+	height:auto;
+}
+.noneinfo{
+	display: none;
+	margin-top:90px;
+	text-align: center;
+}
+.capacityhead{
+	width:100%;
+	height:60px;
+}
+#countofcertify{
+	color:orange;
+}
+#countofmoney{
+	color:orange;
+}
+.capacitydetail{
+	width:100%;
+	height:auto;
+	text-align: center;
+}
+/*能力档案结束*/
+

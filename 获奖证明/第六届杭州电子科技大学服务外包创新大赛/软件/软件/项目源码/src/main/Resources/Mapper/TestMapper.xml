@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.TestMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Test">
+    <id column="testId" jdbcType="INTEGER" property="testId" />
+    <result column="testName" jdbcType="VARCHAR" property="testName" />
+    <result column="testStartTime" jdbcType="VARCHAR" property="testStartTime" />
+    <result column="testEndTime" jdbcType="DATE" property="testEndTime" />
+    <result column="testAllMark" jdbcType="INTEGER" property="testAllMark" />
+    <result column="submitCount" jdbcType="INTEGER" property="submitCount" />
+    <result column="testType" jdbcType="VARCHAR" property="testType" />
+    <result column="limitTime" jdbcType="VARCHAR" property="limitTime" />
+    <result column="testIntro" jdbcType="VARCHAR" property="testIntro" />
+    <result column="belongChapterId" jdbcType="INTEGER" property="belongChapterId" />
+    <result column="publicTeacherId" jdbcType="INTEGER" property="publicTeacherId" />
+    <result column="testState" jdbcType="SMALLINT" property="testState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    testId, testName, testStartTime, testEndTime, testAllMark, submitCount, testType, 
+    limitTime, testIntro, belongChapterId, publicTeacherId, testState
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test
+    where testId = #{testId,jdbcType=INTEGER}
+    and testState=1
+  </select>
+  <select id="selectByChapterId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from test
+    where belongChapterId=#{chapterId,jdbcType=INTEGER}
+    and testState=1
+  </select>
+  <select id="selectByChapterIdWait" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from test
+    where belongChapterId=#{chapterId,jdbcType=INTEGER}
+    and testState=-1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test
+    where testId = #{testId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Test">
+    insert into test (testId, testName, testStartTime, 
+      testEndTime, testAllMark, submitCount, 
+      testType, limitTime, testIntro, 
+      belongChapterId, publicTeacherId, testState
+      )
+    values (#{testId,jdbcType=INTEGER}, #{testName,jdbcType=VARCHAR}, #{testStartTime,jdbcType=VARCHAR}, 
+      #{testEndTime,jdbcType=DATE}, #{testAllMark,jdbcType=INTEGER}, #{submitCount,jdbcType=INTEGER}, 
+      #{testType,jdbcType=VARCHAR}, #{limitTime,jdbcType=VARCHAR}, #{testIntro,jdbcType=VARCHAR}, 
+      #{belongChapterId,jdbcType=INTEGER}, #{publicTeacherId,jdbcType=INTEGER}, #{testState,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Test">
+    insert into test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="testId != null">
+        testId,
+      </if>
+      <if test="testName != null">
+        testName,
+      </if>
+      <if test="testStartTime != null">
+        testStartTime,
+      </if>
+      <if test="testEndTime != null">
+        testEndTime,
+      </if>
+      <if test="testAllMark != null">
+        testAllMark,
+      </if>
+      <if test="submitCount != null">
+        submitCount,
+      </if>
+      <if test="testType != null">
+        testType,
+      </if>
+      <if test="limitTime != null">
+        limitTime,
+      </if>
+      <if test="testIntro != null">
+        testIntro,
+      </if>
+      <if test="belongChapterId != null">
+        belongChapterId,
+      </if>
+      <if test="publicTeacherId != null">
+        publicTeacherId,
+      </if>
+      <if test="testState != null">
+        testState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="testId != null">
+        #{testId,jdbcType=INTEGER},
+      </if>
+      <if test="testName != null">
+        #{testName,jdbcType=VARCHAR},
+      </if>
+      <if test="testStartTime != null">
+        #{testStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="testEndTime != null">
+        #{testEndTime,jdbcType=DATE},
+      </if>
+      <if test="testAllMark != null">
+        #{testAllMark,jdbcType=INTEGER},
+      </if>
+      <if test="submitCount != null">
+        #{submitCount,jdbcType=INTEGER},
+      </if>
+      <if test="testType != null">
+        #{testType,jdbcType=VARCHAR},
+      </if>
+      <if test="limitTime != null">
+        #{limitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="testIntro != null">
+        #{testIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="belongChapterId != null">
+        #{belongChapterId,jdbcType=INTEGER},
+      </if>
+      <if test="publicTeacherId != null">
+        #{publicTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="testState != null">
+        #{testState,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Test">
+    update test
+    <set>
+      <if test="testName != null">
+        testName = #{testName,jdbcType=VARCHAR},
+      </if>
+      <if test="testStartTime != null">
+        testStartTime = #{testStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="testEndTime != null">
+        testEndTime = #{testEndTime,jdbcType=DATE},
+      </if>
+      <if test="testAllMark != null">
+        testAllMark = #{testAllMark,jdbcType=INTEGER},
+      </if>
+      <if test="submitCount != null">
+        submitCount = #{submitCount,jdbcType=INTEGER},
+      </if>
+      <if test="testType != null">
+        testType = #{testType,jdbcType=VARCHAR},
+      </if>
+      <if test="limitTime != null">
+        limitTime = #{limitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="testIntro != null">
+        testIntro = #{testIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="belongChapterId != null">
+        belongChapterId = #{belongChapterId,jdbcType=INTEGER},
+      </if>
+      <if test="publicTeacherId != null">
+        publicTeacherId = #{publicTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="testState != null">
+        testState = #{testState,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where testId = #{testId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Test">
+    update test
+    set testName = #{testName,jdbcType=VARCHAR},
+      testStartTime = #{testStartTime,jdbcType=VARCHAR},
+      testEndTime = #{testEndTime,jdbcType=DATE},
+      testAllMark = #{testAllMark,jdbcType=INTEGER},
+      submitCount = #{submitCount,jdbcType=INTEGER},
+      testType = #{testType,jdbcType=VARCHAR},
+      limitTime = #{limitTime,jdbcType=VARCHAR},
+      testIntro = #{testIntro,jdbcType=VARCHAR},
+      belongChapterId = #{belongChapterId,jdbcType=INTEGER},
+      publicTeacherId = #{publicTeacherId,jdbcType=INTEGER},
+      testState = #{testState,jdbcType=SMALLINT}
+    where testId = #{testId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.TestProblemMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.TestProblem">
+    <id column="testProblemId" jdbcType="INTEGER" property="testProblemId" />
+    <result column="belongTestId" jdbcType="INTEGER" property="belongTestId" />
+    <result column="testProblemType" jdbcType="SMALLINT" property="testProblemType" />
+    <result column="testProblemOrder" jdbcType="INTEGER" property="testProblemOrder" />
+    <result column="testProblemTitle" jdbcType="VARCHAR" property="testProblemTitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    testProblemId, belongTestId, testProblemType, testProblemOrder, testProblemTitle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from testproblem
+    where testProblemId = #{testProblemId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTestId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from testproblem
+    where belongTestId = #{testId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from testproblem
+    where testProblemId = #{testProblemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.TestProblem" keyProperty="testProblemId" useGeneratedKeys="true">
+    insert into testproblem (testProblemId, belongTestId, testProblemType, 
+      testProblemOrder, testProblemTitle)
+    values (#{testProblemId,jdbcType=INTEGER}, #{belongTestId,jdbcType=INTEGER}, #{testProblemType,jdbcType=SMALLINT}, 
+      #{testProblemOrder,jdbcType=INTEGER}, #{testProblemTitle,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.TestProblem" keyProperty="testProblemId" useGeneratedKeys="true" keyColumn="testProblemId">
+    insert into testproblem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="testProblemId != null">
+        testProblemId,
+      </if>
+      <if test="belongTestId != null">
+        belongTestId,
+      </if>
+      <if test="testProblemType != null">
+        testProblemType,
+      </if>
+      <if test="testProblemOrder != null">
+        testProblemOrder,
+      </if>
+      <if test="testProblemTitle != null">
+        testProblemTitle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="testProblemId != null">
+        #{testProblemId,jdbcType=INTEGER},
+      </if>
+      <if test="belongTestId != null">
+        #{belongTestId,jdbcType=INTEGER},
+      </if>
+      <if test="testProblemType != null">
+        #{testProblemType,jdbcType=SMALLINT},
+      </if>
+      <if test="testProblemOrder != null">
+        #{testProblemOrder,jdbcType=INTEGER},
+      </if>
+      <if test="testProblemTitle != null">
+        #{testProblemTitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.TestProblem">
+    update testproblem
+    <set>
+      <if test="belongTestId != null">
+        belongTestId = #{belongTestId,jdbcType=INTEGER},
+      </if>
+      <if test="testProblemType != null">
+        testProblemType = #{testProblemType,jdbcType=SMALLINT},
+      </if>
+      <if test="testProblemOrder != null">
+        testProblemOrder = #{testProblemOrder,jdbcType=INTEGER},
+      </if>
+      <if test="testProblemTitle != null">
+        testProblemTitle = #{testProblemTitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where testProblemId = #{testProblemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.TestProblem">
+    update testproblem
+    set belongTestId = #{belongTestId,jdbcType=INTEGER},
+      testProblemType = #{testProblemType,jdbcType=SMALLINT},
+      testProblemOrder = #{testProblemOrder,jdbcType=INTEGER},
+      testProblemTitle = #{testProblemTitle,jdbcType=VARCHAR}
+    where testProblemId = #{testProblemId,jdbcType=INTEGER}
+  </update>
+</mapper>

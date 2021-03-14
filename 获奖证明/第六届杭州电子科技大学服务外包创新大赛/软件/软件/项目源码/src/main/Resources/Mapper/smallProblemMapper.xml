@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.smallProblemMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.smallProblem">
+    <id column="smallProblemId" jdbcType="INTEGER" property="smallProblemId" />
+    <result column="belongTestProblemId" jdbcType="INTEGER" property="belongTestProblemId" />
+    <result column="smallProblemType" jdbcType="SMALLINT" property="smallProblemType" />
+    <result column="smallProblemScore" jdbcType="SMALLINT" property="smallProblemScore" />
+    <result column="smallProblemADetail" jdbcType="VARCHAR" property="smallProblemADetail" />
+    <result column="smallProblemBDetail" jdbcType="VARCHAR" property="smallProblemBDetail" />
+    <result column="smallProblemCDetail" jdbcType="VARCHAR" property="smallProblemCDetail" />
+    <result column="smallProblemDDetail" jdbcType="VARCHAR" property="smallProblemDDetail" />
+    <result column="smallProblemTip" jdbcType="VARCHAR" property="smallProblemTip" />
+    <result column="smallProblemTrueAnswer" jdbcType="VARCHAR" property="smallProblemTrueAnswer" />
+    <result column="smallProblemTitle" jdbcType="VARCHAR" property="smallProblemTitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    smallProblemId, belongTestProblemId, smallProblemType, smallProblemScore, smallProblemADetail, 
+    smallProblemBDetail, smallProblemCDetail, smallProblemDDetail, smallProblemTip,
+    smallProblemTrueAnswer, smallProblemTitle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from smallproblem
+    where smallProblemId = #{smallProblemId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTestProblemId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from smallproblem
+    where belongTestProblemId = #{testProblemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from smallproblem
+    where smallProblemId = #{smallProblemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.smallProblem">
+    insert into smallproblem (smallProblemId, belongTestProblemId, 
+      smallProblemType, smallProblemScore, 
+      smallProblemADetail, smallProblemBDetail, 
+      smallProblemCDetail, smallProblemDDetail, 
+       smallProblemTip,
+      smallProblemTrueAnswer, smallProblemTitle
+      )
+    values (#{smallProblemId,jdbcType=INTEGER}, #{belongTestProblemId,jdbcType=INTEGER}, 
+      #{smallProblemType,jdbcType=SMALLINT}, #{smallProblemScore,jdbcType=SMALLINT}, 
+      #{smallProblemADetail,jdbcType=VARCHAR}, #{smallProblemBDetail,jdbcType=VARCHAR}, 
+      #{smallProblemCDetail,jdbcType=VARCHAR}, #{smallProblemDDetail,jdbcType=VARCHAR}, 
+      #{smallProblemTip,jdbcType=VARCHAR},
+      #{smallProblemTrueAnswer,jdbcType=VARCHAR}, #{smallProblemTitle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.smallProblem">
+    insert into smallproblem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smallProblemId != null">
+        smallProblemId,
+      </if>
+      <if test="belongTestProblemId != null">
+        belongTestProblemId,
+      </if>
+      <if test="smallProblemType != null">
+        smallProblemType,
+      </if>
+      <if test="smallProblemScore != null">
+        smallProblemScore,
+      </if>
+      <if test="smallProblemADetail != null">
+        smallProblemADetail,
+      </if>
+      <if test="smallProblemBDetail != null">
+        smallProblemBDetail,
+      </if>
+      <if test="smallProblemCDetail != null">
+        smallProblemCDetail,
+      </if>
+      <if test="smallProblemDDetail != null">
+        smallProblemDDetail,
+      </if>
+      <if test="smallProblemTip != null">
+        smallProblemTip,
+      </if>
+      <if test="smallProblemTrueAnswer != null">
+        smallProblemTrueAnswer,
+      </if>
+      <if test="smallProblemTitle != null">
+        smallProblemTitle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smallProblemId != null">
+        #{smallProblemId,jdbcType=INTEGER},
+      </if>
+      <if test="belongTestProblemId != null">
+        #{belongTestProblemId,jdbcType=INTEGER},
+      </if>
+      <if test="smallProblemType != null">
+        #{smallProblemType,jdbcType=SMALLINT},
+      </if>
+      <if test="smallProblemScore != null">
+        #{smallProblemScore,jdbcType=SMALLINT},
+      </if>
+      <if test="smallProblemADetail != null">
+        #{smallProblemADetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemBDetail != null">
+        #{smallProblemBDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemCDetail != null">
+        #{smallProblemCDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemDDetail != null">
+        #{smallProblemDDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTip != null">
+        #{smallProblemTip,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTrueAnswer != null">
+        #{smallProblemTrueAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTitle != null">
+        #{smallProblemTitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.smallProblem">
+    update smallproblem
+    <set>
+      <if test="belongTestProblemId != null">
+        belongTestProblemId = #{belongTestProblemId,jdbcType=INTEGER},
+      </if>
+      <if test="smallProblemType != null">
+        smallProblemType = #{smallProblemType,jdbcType=SMALLINT},
+      </if>
+      <if test="smallProblemScore != null">
+        smallProblemScore = #{smallProblemScore,jdbcType=SMALLINT},
+      </if>
+      <if test="smallProblemADetail != null">
+        smallProblemADetail = #{smallProblemADetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemBDetail != null">
+        smallProblemBDetail = #{smallProblemBDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemCDetail != null">
+        smallProblemCDetail = #{smallProblemCDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemDDetail != null">
+        smallProblemDDetail = #{smallProblemDDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTip != null">
+        smallProblemTip = #{smallProblemTip,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTrueAnswer != null">
+        smallProblemTrueAnswer = #{smallProblemTrueAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="smallProblemTitle != null">
+        smallProblemTitle = #{smallProblemTitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where smallProblemId = #{smallProblemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.smallProblem">
+    update smallproblem
+    set belongTestProblemId = #{belongTestProblemId,jdbcType=INTEGER},
+      smallProblemType = #{smallProblemType,jdbcType=SMALLINT},
+      smallProblemScore = #{smallProblemScore,jdbcType=SMALLINT},
+      smallProblemADetail = #{smallProblemADetail,jdbcType=VARCHAR},
+      smallProblemBDetail = #{smallProblemBDetail,jdbcType=VARCHAR},
+      smallProblemCDetail = #{smallProblemCDetail,jdbcType=VARCHAR},
+      smallProblemDDetail = #{smallProblemDDetail,jdbcType=VARCHAR},
+      smallProblemTip = #{smallProblemTip,jdbcType=VARCHAR},
+      smallProblemTrueAnswer = #{smallProblemTrueAnswer,jdbcType=VARCHAR},
+      smallProblemTitle = #{smallProblemTitle,jdbcType=VARCHAR}
+    where smallProblemId = #{smallProblemId,jdbcType=INTEGER}
+  </update>
+</mapper>

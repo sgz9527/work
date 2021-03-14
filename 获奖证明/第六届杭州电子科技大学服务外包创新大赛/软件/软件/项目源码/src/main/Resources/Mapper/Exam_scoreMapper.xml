@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.Exam_scoreMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Exam_score">
+    <id column="examId" jdbcType="INTEGER" property="examId" />
+    <result column="studentId" jdbcType="INTEGER" property="studentId" />
+    <result column="courseId" jdbcType="INTEGER" property="courseId" />
+    <result column="score" jdbcType="REAL" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    examId, studentId, courseId, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from exam_score
+    where examId = #{examId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from exam_score
+    where examId = #{examId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Exam_score">
+    insert into exam_score (examId, studentId, courseId, 
+      score)
+    values (#{examId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, 
+      #{score,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Exam_score">
+    insert into exam_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examId != null">
+        examId,
+      </if>
+      <if test="studentId != null">
+        studentId,
+      </if>
+      <if test="courseId != null">
+        courseId,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Exam_score">
+    update exam_score
+    <set>
+      <if test="studentId != null">
+        studentId = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        courseId = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=REAL},
+      </if>
+    </set>
+    where examId = #{examId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Exam_score">
+    update exam_score
+    set studentId = #{studentId,jdbcType=INTEGER},
+      courseId = #{courseId,jdbcType=INTEGER},
+      score = #{score,jdbcType=REAL}
+    where examId = #{examId,jdbcType=INTEGER}
+  </update>
+</mapper>

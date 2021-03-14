@@ -1,0 +1,5 @@
+1.java jdk为1.7及以上
+2.IDE使用IDEA 2017.2或者Eclipse
+3.数据库使用mysql 5.1
+4.本地运行即可
+5.yunzhi.sql为数据库文件

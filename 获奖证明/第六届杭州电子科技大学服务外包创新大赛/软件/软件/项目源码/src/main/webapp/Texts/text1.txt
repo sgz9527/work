@@ -1,0 +1,213 @@
+[
+    {
+        "allScore": "1",
+        "smallNum": "",
+        "testBigNumber": "1",
+        "testBigType": "choose",
+        "smallScore": "1",
+        "smallDetail": [
+            {
+                "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            }
+            ,
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+              },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                   "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+              },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            },
+            {
+                 "title": "以下说法正确的是:",
+                "A": "中华人民共和国创始人是邓小平",
+                "B": "1937年卢沟桥事变发生",
+                "C": "日本投放原子弹到珍珠港迫使美国投降",
+                "D": "希特勒曾担任美国总统",
+                "trueAnswer": "B"
+            }
+        ]
+    }
+    ,
+    {
+        "allScore": "1",
+        "smallNum": "",
+        "testBigNumber": "1",
+        "testBigType": "fillIn",
+        "smallScore": "1",
+        "smallDetail": [
+           {
+               "title": "3+5=__",
+               "trueAnswer": "8",
+               "answer": "number"
+           },
+           {
+              "title": "书本英文名为__",
+               "trueAnswer": "book",
+               "answer": "profeword"
+           },
+           {
+               "title": "4+5=__",
+               "trueAnswer": "9",
+               "answer": "number"
+           },
+           {
+             "title": "9+5=__",
+               "trueAnswer": "14",
+               "answer": "number" 
+           },
+           {
+               "title": "24+5=__",
+               "trueAnswer": "29",
+               "answer": "number"
+           }
+        ]
+    }
+    ,
+    {
+         "allScore": "1",
+        "smallNum": "5",
+        "testBigNumber": "1",
+        "testBigType": "judge",
+        "smallScore": "1",
+        "smallDetail": [
+           {
+               "title": "中华人民共和国于1949年10月一日正式成立",
+               "trueAnswer": "true"
+           },
+           {
+               "title": "日本人是好人",
+               "trueAnswer": "false"
+           },
+           {
+               "title": "中国大学生都应该积极向上好好学习",
+               "trueAnswer": "true"
+           },
+           {
+               "title": "faker是美国总统",
+               "trueAnswer": "false"
+           },
+           {
+               "title": "孙悟空是中国四大名著之一《西游记》里的人物",
+               "trueAnswer": "true"
+           }
+        ]
+
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<select id="selectByChapterId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from util
+    where belongChapterId = #{chapterId,jdbcType=INTEGER}
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int deleteByPrimaryKey(@Param("courseId")Integer courseId);
+
+    int insert(Course record);
+
+    int insertSelective(Course record);
+
+    Course selectByPrimaryKey(@Param("courseId")Integer courseId);
+
+    int updateByPrimaryKeySelective(Course record);
+
+    int updateByPrimaryKey(Course record);
+    List<Course> selectTop12();
+    List<Course> selectAll();
+    List<Course> selectByFuzzy(@Param("key")String key);
+    List<Course> selectCourseByType(@Param("type")String type);

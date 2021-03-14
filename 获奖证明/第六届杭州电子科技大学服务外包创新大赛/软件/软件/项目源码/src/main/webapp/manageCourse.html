@@ -1,0 +1,198 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>课程管理</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+</head>
+<style>
+    .oneApplicateCourse{
+        margin-top:5%;
+        border-style:solid;
+        border-width:1px;
+        border-color:green;
+    }
+    .oneApplicateCourse span{
+        color:mediumpurple;
+        border-style:solid;
+        border-width:1px;
+        border-color:orangered;
+    }
+    .images{
+        width:50%;
+        height:auto;
+    }
+    .introduceInfo{
+        width:80%;
+        height:auto;
+    }
+    .srcs{
+        width:50%;
+        height:56%;
+    }
+</style>
+<body class="table-responsive">
+<div><strong>已有课程:</strong></div>
+<hr>
+<table class="table" >
+    <thead>
+    <tr><th>课程ID</th><th>课程名称</th><th>课程类型</th><th>任课教师</th></tr>
+    </thead>
+    <tbody id="tbody">
+    <!--<tr class="info"><td>005</td><td>计算机网络</td><td>计算机</td><td>曹操</td></tr>-->
+    </tbody>
+</table>
+<hr>
+<div style="color:green;font-size:20px;">课程申请列表:</div>
+<hr>
+<div class="applicateList">
+    <!--<div class="oneApplicateCourse">
+        <div class="baseApplicateInfo">审核ID：<span id="courseId">125874</span> &nbsp&nbsp&nbsp&nbsp课程名称:<span id="courseName">我的电竞人生</span>
+        &nbsp&nbsp&nbsp&nbsp课程类型:<span id="courseType">人文|其他</span>&nbsp&nbsp&nbsp&nbsp教师ID:<span id="teacherId">154894</span>
+        &nbsp&nbsp&nbsp&nbsp院校ID:<span id="schId">154</span>  &nbsp&nbsp&nbsp&nbsp教师联系方式:<span id="teacherPhone">15368016711</span>
+            </div>
+        <div class="introduceInfo">
+            课程介绍：
+            <div>
+                <p style="word-break:break-all;color:mediumpurple">
+                aoiwjgijwoiejwoaijrgoiaejiheoirhbaoiergiesjagiogoirebjioheahioerj
+                bihakeihtaoiery[writuauihsuigwhepiuheurghergregueurhgeirhguieahrguiherguihaergiphg
+                osejhiseroighserohgoerhhhhhuefhaioweihgaorndojgasdgog
+            </p>
+                </div>
+        </div>
+        <div class="srcs">
+            <div style="float:left;">
+            课程封面：
+            <div style="width:inherit;height:inherit;">
+                <img src="./img/1.jpg" style="width:inherit;height:inherit">
+            </div>
+            </div>
+            <div style="float:left;margin-left:15%;">
+            课程介绍视频：
+            <div>
+                <video src="video/video1.mp4" controls preload="auto" width="230px" height="55%" type="video/mp4" data-setup="{}"></video>
+            </div>
+            </div>
+        </div>
+        <div class="passCheckCourse">
+            <input type="button" value="审核通过">&nbsp&nbsp&nbsp<input type="button" value="不通过">
+            <textarea placeholder="审核补充说明,将作为审核依据发送给申请者" cols="100" rows="3"></textarea>
+        </div>
+
+    </div>-->
+
+</div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("#tbody").empty();
+        $.ajax({
+            url:"getAllCourse",
+            cache:false,
+            dataType:"json",
+            data:{"type":"all"},
+            success:function(data){
+                $.each(data,function(i,val){
+                    var strhtm='<tr class="info"><td>'+val.courseId+'</td><td>'+val.courseName+'</td><td>'+val.courseType+'</td><td>'+val.teachers+'</td></tr>';
+                    $("#tbody").append(strhtm);
+                })
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+        $.ajax({
+            url:"getAllCourseCheck",
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                $(".applicateList").empty();
+                $.each(data,function(i,val){
+                    var strhtm='<div class="oneApplicateCourse">\n' +
+                        '        <div class="baseApplicateInfo">审核ID：<span id="checkId'+val.checkId+'">'+val.checkId+'</span> &nbsp&nbsp&nbsp&nbsp课程名称:<span id="courseName'+val.checkId+'">'+val.courseName+'</span>\n' +
+                        '        &nbsp&nbsp&nbsp&nbsp课程类型:<span >'+val.courseType+'</span>&nbsp&nbsp&nbsp&nbsp教师ID:<span>'+val.teacherId+'</span>\n' +
+                        '        &nbsp&nbsp&nbsp&nbsp院校ID:<span >'+val.belongSchId+'</span>  &nbsp&nbsp&nbsp&nbsp教师联系方式:<span>'+val.teacherPhone+'</span>\n' +
+                        '            </div>\n' +
+                        '        <div class="introduceInfo">\n' +
+                        '            课程介绍：\n' +
+                        '            <div>\n' +
+                        '                <p style="word-break:break-all;color:mediumpurple">\n' + val.courseIntroduce +
+                        '            </p>\n' +
+                        '                </div>\n' +
+                        '        </div>\n' +
+                        '        <div class="srcs">\n' +
+                        '            <div style="float:left;">\n' +
+                        '            课程封面：\n' +
+                        '            <div style="width:inherit;height:inherit;">\n' +
+                        '                <img src="./img/'+val.poster+'" style="width:inherit;height:inherit">\n' +
+                        '            </div>\n' +
+                        '            </div>\n' +
+                        '            <div style="float:left;margin-left:15%;">\n' +
+                        '            课程介绍视频：\n' +
+                        '            <div>\n' +
+                        '                <video src="video/'+val.introduceSrc+'" controls preload="auto" width="230px" height="55%" type="video/mp4" data-setup="{}"></video>\n' +
+                        '            </div>\n' +
+                        '            </div>\n' +
+                        '        </div>\n' +
+                        '        <div class="passCheckCourse">\n' +
+                        '            <input type="button" value="审核通过" class="checkCourseBtn" id="checkCourseBtn'+val.checkId+'">&nbsp&nbsp&nbsp<input type="button" value="不通过" class="checkCourseNotPassBtn" id="checkCourseNotPassBtn'+val.checkId+'">\n' +
+                        '            <textarea id="suplement'+val.checkId+'" placeholder="审核补充说明,将作为审核依据发送给申请者" cols="100" rows="3"></textarea>\n' +
+                        '        </div>\n' +
+                        '\n' +
+                        '    </div>';
+                    $(".applicateList").append(strhtm);
+                })
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+    })
+    $(document).on('click','.checkCourseBtn',function(){
+        var ids=$(this).attr("id");
+        var checkId=ids.substr(14,5);
+        alert(checkId);
+        if($("#suplement"+checkId).val()==""){
+            alert("补充说明不能为空");
+        }
+        else {
+            $.ajax({
+                url:"setCheckCourseState",
+                cache:false,
+                dataType:"json",
+                data:{"checkState":"pass","checkId":checkId,"suplement":$("#suplement"+checkId).val()},
+                success:function(){
+                    alert("success");
+                },
+                error:function(e){
+                    alert(e.responseText);
+                }
+            })
+        }
+    })
+    $(document).on('click','.checkCourseNotPassBtn',function(){
+        var ids=$(this).attr("id");
+        var checkId=ids.substr(21,5);
+        alert(checkId);
+        if($("#suplement"+checkId).val()==""){
+            alert("补充说明不能为空");
+        }
+        else {
+            $.ajax({
+                url:"setCheckCourseState",
+                cache:false,
+                data:{"checkState":"fail","checkId":checkId,"suplement":$("#suplement"+checkId).val()},
+                dataType:"json",
+                success:function(){
+                    alert("success");
+                },
+                error:function(e){
+                    alert(e.responseText);
+                }
+            })
+        }
+    })
+</script>

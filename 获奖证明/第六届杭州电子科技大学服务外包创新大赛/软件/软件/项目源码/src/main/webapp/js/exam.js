@@ -1,0 +1,161 @@
+function submitForm(){
+    $("#examPramOfCourseId").val(courseids);
+    return true;
+}
+function submitExamScoreForm(){
+    $("#examOfCourseId").val(courseids);
+    return true;
+}
+$(document).ready(function(){
+    $("#lookExam").click(function(){
+        $("#examDesignArea").show();
+
+    })
+    $("#setExam").click(function(){
+        $("#examDesignArea").show();
+
+    })
+    $("#deleteExam").click(function(){
+        $.ajax({
+            url:"deleteExam",
+            cache:false,
+            data:{
+                "courseId":courseids
+            },
+            dataType:"json",
+            success:function(data){
+                alert(data);
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+    })
+    $("#checkRight").click(function(){
+        $.ajax({
+            url:"checkExam",
+            cache:false,
+            data:{
+                "courseId":courseids,
+                "examAgree":$("#checkResultSelect").val(),
+                "examArgumentSuplement":$("#checkResultRecommand").val(),
+                "teacherId":teacherId
+            },
+            dataType:"json",
+            success:function(data){
+                alert(data);
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+    })
+})
+$(document).on('click','.studentExamName',function(){
+var thisId=$(this).attr("id");
+var studentId=thisId.substr(15,8);
+$("#examOfStudentId").val(studentId);
+    $.ajax({
+        url:"getStudentExamAnswer",
+        cache:false,
+        data:{
+            "studentId":studentId,
+            "courseId":courseids
+        },
+        dataType:"json",
+        success:function(data){
+            $("#studentExamList").hide();
+            $("#studentExamInfo").show();
+            $("#oneProblemTitles").html(data.examOneTitle);
+            $("#twoProblemTitles").html(data.examTwoTitle);
+            $("#threeProblemTitles").html(data.examThreeTitle);
+            $("#fourProblemTitles").html(data.examFourTitle);
+            $("#fiveProblemTitles").html(data.examFiveTitle);
+            $("#oneAnswerTip").val(data.examOneAnswer);
+            $("#twoAnswerTip").val(data.examTwoAnswer);
+            $("#threeAnswerTip").val(data.examThreeAnswer);
+            $("#fourAnswerTip").val(data.examFourAnswer);
+            $("#fiveAnswerTip").val(data.examFiveAnswer);
+            $("#oneImg").attr("src","./img/"+data.oneSrc);
+            $("#twoImg").attr("src","./img/"+data.twoSrc);
+            $("#threeImg").attr("src","./img/"+data.threeSrc);
+            $("#fourImg").attr("src","./img/"+data.fourSrc);
+            $("#fiveImg").attr("src","./img/"+data.fiveSrc);
+        },
+        error:function(e){
+            alert(e.responseText);
+        }
+    })
+})
+$(document).on('click','.studentExamAccount',function(){
+    var thisId=$(this).attr("id");
+    var studentId=thisId.substr(18,8);
+    $("#examOfStudentId").val(studentId);
+    $.ajax({
+        url:"getStudentExamAnswer",
+        cache:false,
+        data:{
+            "studentId":studentId,
+            "courseId":courseids
+        },
+        dataType:"json",
+        success:function(data){
+            $("#studentExamList").hide();
+            $("#studentExamInfo").show();
+            $("#oneProblemTitles").html(data.examOneTitle);
+            $("#twoProblemTitles").html(data.examTwoTitle);
+            $("#threeProblemTitles").html(data.examThreeTitle);
+            $("#fourProblemTitles").html(data.examFourTitle);
+            $("#fiveProblemTitles").html(data.examFiveTitle);
+            $("#oneAnswerTip").val(data.examOneAnswer);
+            $("#twoAnswerTip").val(data.examTwoAnswer);
+            $("#threeAnswerTip").val(data.examThreeAnswer);
+            $("#fourAnswerTip").val(data.examFourAnswer);
+            $("#fiveAnswerTip").val(data.examFiveAnswer);
+            $("#oneImg").attr("src","./img/"+data.oneSrc);
+            $("#twoImg").attr("src","./img/"+data.twoSrc);
+            $("#threeImg").attr("src","./img/"+data.threeSrc);
+            $("#fourImg").attr("src","./img/"+data.fourSrc);
+            $("#fiveImg").attr("src","./img/"+data.fiveSrc);
+        },
+        error:function(e){
+            alert(e.responseText);
+        }
+    })
+})
+$(document).on('click','.studentExamType',function(){
+    var thisId=$(this).attr("id");
+    var studentId=thisId.substr(15,8);
+    $("#examOfStudentId").val(studentId);
+    $.ajax({
+        url:"getStudentExamAnswer",
+        cache:false,
+        data:{
+            "studentId":studentId,
+            "courseId":courseids
+        },
+        dataType:"json",
+        success:function(data){
+            $("#studentExamList").hide();
+            $("#studentExamInfo").show();
+            $("#oneProblemTitles").html(data.examOneTitle);
+            $("#twoProblemTitles").html(data.examTwoTitle);
+            $("#threeProblemTitles").html(data.examThreeTitle);
+            $("#fourProblemTitles").html(data.examFourTitle);
+            $("#fiveProblemTitles").html(data.examFiveTitle);
+            $("#oneAnswerTip").val(data.examOneAnswer);
+            $("#twoAnswerTip").val(data.examTwoAnswer);
+            $("#threeAnswerTip").val(data.examThreeAnswer);
+            $("#fourAnswerTip").val(data.examFourAnswer);
+            $("#fiveAnswerTip").val(data.examFiveAnswer);
+            $("#oneImg").attr("src","./img/"+data.oneSrc);
+            $("#twoImg").attr("src","./img/"+data.twoSrc);
+            $("#threeImg").attr("src","./img/"+data.threeSrc);
+            $("#fourImg").attr("src","./img/"+data.fourSrc);
+            $("#fiveImg").attr("src","./img/"+data.fiveSrc);
+        },
+        error:function(e){
+            alert(e.responseText);
+        }
+    })
+})

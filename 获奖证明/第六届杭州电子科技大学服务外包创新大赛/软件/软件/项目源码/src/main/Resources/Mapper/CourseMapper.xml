@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Course">
+    <id column="courseId" jdbcType="INTEGER" property="courseId" />
+    <result column="courseName" jdbcType="VARCHAR" property="courseName" />
+    <result column="courseIntroduce" jdbcType="VARCHAR" property="courseIntroduce" />
+    <result column="coursePostSrc" jdbcType="VARCHAR" property="coursePostSrc" />
+    <result column="courseProgress" jdbcType="INTEGER" property="courseProgress" />
+    <result column="belongSchId" jdbcType="INTEGER" property="belongSchId" />
+    <result column="courseType" jdbcType="VARCHAR" property="courseType" />
+    <result column="introduceVideoSrc" jdbcType="VARCHAR" property="introduceVideoSrc" />
+    <result column="evaluationLevel" jdbcType="VARCHAR" property="evaluationLevel" />
+    <result column="evaluationExamWeight" jdbcType="DOUBLE" property="evaluationExamWeight" />
+    <result column="evaluationChatWeight" jdbcType="DOUBLE" property="evaluationChatWeight" />
+    <result column="evaluationTestWeight" jdbcType="DOUBLE" property="evaluationTestWeight" />
+    <result column="examStartTime" jdbcType="DATE" property="examStartTime" />
+    <result column="examEndTime" jdbcType="DATE" property="examEndTime" />
+    <result column="examSuplement" jdbcType="VARCHAR" property="examSuplement" />
+    <result column="examLimitTime" jdbcType="DOUBLE" property="examLimitTime" />
+    <result column="examOneTitle" jdbcType="VARCHAR" property="examOneTitle" />
+    <result column="examOneAnswer" jdbcType="VARCHAR" property="examOneAnswer" />
+    <result column="examTwoTitle" jdbcType="VARCHAR" property="examTwoTitle" />
+    <result column="examTwoAnswer" jdbcType="VARCHAR" property="examTwoAnswer" />
+    <result column="examThreeTitle" jdbcType="VARCHAR" property="examThreeTitle" />
+    <result column="examThreeAnswer" jdbcType="VARCHAR" property="examThreeAnswer" />
+    <result column="examFourTitle" jdbcType="VARCHAR" property="examFourTitle" />
+    <result column="examFourAnswer" jdbcType="VARCHAR" property="examFourAnswer" />
+    <result column="examFiveTitle" jdbcType="VARCHAR" property="examFiveTitle" />
+    <result column="examFiveAnswer" jdbcType="VARCHAR" property="examFiveAnswer" />
+    <result column="examPublishTeacherId" jdbcType="INTEGER" property="examPublishTeacherId" />
+    <result column="examPass" jdbcType="TINYINT" property="examPass" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    courseId, courseName, courseIntroduce, coursePostSrc, courseProgress, belongSchId, 
+    courseType, introduceVideoSrc, evaluationLevel, evaluationExamWeight, evaluationChatWeight, 
+    evaluationTestWeight, examStartTime, examEndTime, examSuplement, examLimitTime, examOneTitle, 
+    examOneAnswer, examTwoTitle, examTwoAnswer, examThreeTitle, examThreeAnswer, examFourTitle, 
+    examFourAnswer, examFiveTitle, examFiveAnswer, examPublishTeacherId,examPass
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from course
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </select>
+  <select id="selectTop12" resultMap="BaseResultMap">
+    select * from course
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from course
+  </select>
+  <select id="selectByFuzzy" parameterType="String" resultMap="BaseResultMap">
+    select * from course WHERE
+    courseName like CONCAT('%', #{key}, '%')
+  </select>
+  <select id="selectCourseByType" parameterType="String" resultMap="BaseResultMap">
+    select * from course WHERE
+    courseType like CONCAT('%', #{type}, '%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from course
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Course">
+    insert into course (courseId, courseName, courseIntroduce, 
+      coursePostSrc, courseProgress, belongSchId, 
+      courseType, introduceVideoSrc, evaluationLevel, 
+      evaluationExamWeight, evaluationChatWeight, 
+      evaluationTestWeight, examStartTime, examEndTime, 
+      examSuplement, examLimitTime, examOneTitle, 
+      examOneAnswer, examTwoTitle, examTwoAnswer, 
+      examThreeTitle, examThreeAnswer, examFourTitle, 
+      examFourAnswer, examFiveTitle, examFiveAnswer, 
+      examPublishTeacherId,examPass)
+    values (#{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseIntroduce,jdbcType=VARCHAR}, 
+      #{coursePostSrc,jdbcType=VARCHAR}, #{courseProgress,jdbcType=INTEGER}, #{belongSchId,jdbcType=INTEGER}, 
+      #{courseType,jdbcType=VARCHAR}, #{introduceVideoSrc,jdbcType=VARCHAR}, #{evaluationLevel,jdbcType=VARCHAR}, 
+      #{evaluationExamWeight,jdbcType=DOUBLE}, #{evaluationChatWeight,jdbcType=DOUBLE}, 
+      #{evaluationTestWeight,jdbcType=DOUBLE}, #{examStartTime,jdbcType=DATE}, #{examEndTime,jdbcType=DATE}, 
+      #{examSuplement,jdbcType=VARCHAR}, #{examLimitTime,jdbcType=DOUBLE}, #{examOneTitle,jdbcType=VARCHAR}, 
+      #{examOneAnswer,jdbcType=VARCHAR}, #{examTwoTitle,jdbcType=VARCHAR}, #{examTwoAnswer,jdbcType=VARCHAR}, 
+      #{examThreeTitle,jdbcType=VARCHAR}, #{examThreeAnswer,jdbcType=VARCHAR}, #{examFourTitle,jdbcType=VARCHAR}, 
+      #{examFourAnswer,jdbcType=VARCHAR}, #{examFiveTitle,jdbcType=VARCHAR}, #{examFiveAnswer,jdbcType=VARCHAR}, 
+      #{examPublishTeacherId,jdbcType=INTEGER}, #{examPass,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Course">
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseId != null">
+        courseId,
+      </if>
+      <if test="courseName != null">
+        courseName,
+      </if>
+      <if test="courseIntroduce != null">
+        courseIntroduce,
+      </if>
+      <if test="coursePostSrc != null">
+        coursePostSrc,
+      </if>
+      <if test="courseProgress != null">
+        courseProgress,
+      </if>
+      <if test="belongSchId != null">
+        belongSchId,
+      </if>
+      <if test="courseType != null">
+        courseType,
+      </if>
+      <if test="introduceVideoSrc != null">
+        introduceVideoSrc,
+      </if>
+      <if test="evaluationLevel != null">
+        evaluationLevel,
+      </if>
+      <if test="evaluationExamWeight != null">
+        evaluationExamWeight,
+      </if>
+      <if test="evaluationChatWeight != null">
+        evaluationChatWeight,
+      </if>
+      <if test="evaluationTestWeight != null">
+        evaluationTestWeight,
+      </if>
+      <if test="examStartTime != null">
+        examStartTime,
+      </if>
+      <if test="examEndTime != null">
+        examEndTime,
+      </if>
+      <if test="examSuplement != null">
+        examSuplement,
+      </if>
+      <if test="examLimitTime != null">
+        examLimitTime,
+      </if>
+      <if test="examOneTitle != null">
+        examOneTitle,
+      </if>
+      <if test="examOneAnswer != null">
+        examOneAnswer,
+      </if>
+      <if test="examTwoTitle != null">
+        examTwoTitle,
+      </if>
+      <if test="examTwoAnswer != null">
+        examTwoAnswer,
+      </if>
+      <if test="examThreeTitle != null">
+        examThreeTitle,
+      </if>
+      <if test="examThreeAnswer != null">
+        examThreeAnswer,
+      </if>
+      <if test="examFourTitle != null">
+        examFourTitle,
+      </if>
+      <if test="examFourAnswer != null">
+        examFourAnswer,
+      </if>
+      <if test="examFiveTitle != null">
+        examFiveTitle,
+      </if>
+      <if test="examFiveAnswer != null">
+        examFiveAnswer,
+      </if>
+      <if test="examPublishTeacherId != null">
+        examPublishTeacherId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="courseName != null">
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntroduce != null">
+        #{courseIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="coursePostSrc != null">
+        #{coursePostSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="courseProgress != null">
+        #{courseProgress,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        #{belongSchId,jdbcType=INTEGER},
+      </if>
+      <if test="courseType != null">
+        #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceVideoSrc != null">
+        #{introduceVideoSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationLevel != null">
+        #{evaluationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationExamWeight != null">
+        #{evaluationExamWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluationChatWeight != null">
+        #{evaluationChatWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluationTestWeight != null">
+        #{evaluationTestWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="examStartTime != null">
+        #{examStartTime,jdbcType=DATE},
+      </if>
+      <if test="examEndTime != null">
+        #{examEndTime,jdbcType=DATE},
+      </if>
+      <if test="examSuplement != null">
+        #{examSuplement,jdbcType=VARCHAR},
+      </if>
+      <if test="examLimitTime != null">
+        #{examLimitTime,jdbcType=DOUBLE},
+      </if>
+      <if test="examOneTitle != null">
+        #{examOneTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examOneAnswer != null">
+        #{examOneAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examTwoTitle != null">
+        #{examTwoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examTwoAnswer != null">
+        #{examTwoAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examThreeTitle != null">
+        #{examThreeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examThreeAnswer != null">
+        #{examThreeAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examFourTitle != null">
+        #{examFourTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examFourAnswer != null">
+        #{examFourAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examFiveTitle != null">
+        #{examFiveTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examFiveAnswer != null">
+        #{examFiveAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examPublishTeacherId != null">
+        #{examPublishTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="examPass != null">
+        #{examPass,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Course">
+    update course
+    <set>
+      <if test="courseName != null">
+        courseName = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntroduce != null">
+        courseIntroduce = #{courseIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="coursePostSrc != null">
+        coursePostSrc = #{coursePostSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="courseProgress != null">
+        courseProgress = #{courseProgress,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        belongSchId = #{belongSchId,jdbcType=INTEGER},
+      </if>
+      <if test="courseType != null">
+        courseType = #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceVideoSrc != null">
+        introduceVideoSrc = #{introduceVideoSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationLevel != null">
+        evaluationLevel = #{evaluationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationExamWeight != null">
+        evaluationExamWeight = #{evaluationExamWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluationChatWeight != null">
+        evaluationChatWeight = #{evaluationChatWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluationTestWeight != null">
+        evaluationTestWeight = #{evaluationTestWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="examStartTime != null">
+        examStartTime = #{examStartTime,jdbcType=DATE},
+      </if>
+      <if test="examEndTime != null">
+        examEndTime = #{examEndTime,jdbcType=DATE},
+      </if>
+      <if test="examSuplement != null">
+        examSuplement = #{examSuplement,jdbcType=VARCHAR},
+      </if>
+      <if test="examLimitTime != null">
+        examLimitTime = #{examLimitTime,jdbcType=DOUBLE},
+      </if>
+      <if test="examOneTitle != null">
+        examOneTitle = #{examOneTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examOneAnswer != null">
+        examOneAnswer = #{examOneAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examTwoTitle != null">
+        examTwoTitle = #{examTwoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examTwoAnswer != null">
+        examTwoAnswer = #{examTwoAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examThreeTitle != null">
+        examThreeTitle = #{examThreeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examThreeAnswer != null">
+        examThreeAnswer = #{examThreeAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examFourTitle != null">
+        examFourTitle = #{examFourTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examFourAnswer != null">
+        examFourAnswer = #{examFourAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examFiveTitle != null">
+        examFiveTitle = #{examFiveTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="examFiveAnswer != null">
+        examFiveAnswer = #{examFiveAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="examPublishTeacherId != null">
+        examPublishTeacherId = #{examPublishTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="examPass != null">
+        examPass = #{examPass,jdbcType=TINYINT},
+      </if>
+    </set>
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Course">
+    update course
+    set courseName = #{courseName,jdbcType=VARCHAR},
+      courseIntroduce = #{courseIntroduce,jdbcType=VARCHAR},
+      coursePostSrc = #{coursePostSrc,jdbcType=VARCHAR},
+      courseProgress = #{courseProgress,jdbcType=INTEGER},
+      belongSchId = #{belongSchId,jdbcType=INTEGER},
+      courseType = #{courseType,jdbcType=VARCHAR},
+      introduceVideoSrc = #{introduceVideoSrc,jdbcType=VARCHAR},
+      evaluationLevel = #{evaluationLevel,jdbcType=VARCHAR},
+      evaluationExamWeight = #{evaluationExamWeight,jdbcType=DOUBLE},
+      evaluationChatWeight = #{evaluationChatWeight,jdbcType=DOUBLE},
+      evaluationTestWeight = #{evaluationTestWeight,jdbcType=DOUBLE},
+      examStartTime = #{examStartTime,jdbcType=DATE},
+      examEndTime = #{examEndTime,jdbcType=DATE},
+      examSuplement = #{examSuplement,jdbcType=VARCHAR},
+      examLimitTime = #{examLimitTime,jdbcType=DOUBLE},
+      examOneTitle = #{examOneTitle,jdbcType=VARCHAR},
+      examOneAnswer = #{examOneAnswer,jdbcType=VARCHAR},
+      examTwoTitle = #{examTwoTitle,jdbcType=VARCHAR},
+      examTwoAnswer = #{examTwoAnswer,jdbcType=VARCHAR},
+      examThreeTitle = #{examThreeTitle,jdbcType=VARCHAR},
+      examThreeAnswer = #{examThreeAnswer,jdbcType=VARCHAR},
+      examFourTitle = #{examFourTitle,jdbcType=VARCHAR},
+      examFourAnswer = #{examFourAnswer,jdbcType=VARCHAR},
+      examFiveTitle = #{examFiveTitle,jdbcType=VARCHAR},
+      examFiveAnswer = #{examFiveAnswer,jdbcType=VARCHAR},
+      examPublishTeacherId = #{examPublishTeacherId,jdbcType=INTEGER},
+      examPass=#{examPass,jdbcType=TINYINT}
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+</mapper>

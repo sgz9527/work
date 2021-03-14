@@ -1,0 +1,197 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#F5F2F2;
+}
+/*导航栏开始*/
+.nav{
+	width:100%;
+	height:auto;
+}
+div.head{
+	position: fixed;
+	top:0px;
+	width: 63%;
+	height: 36px;
+	float:left;
+	left:8px;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead{
+	position:fixed;
+	top:0px;
+	width: 37%;
+	height: 36px;
+	right:8px;
+	float:left;
+	background-color:#453F3F;
+	z-index: 9999;
+}
+div.rightofhead input.text{
+	background-color: beige;
+	height:32px;
+	width:51%;
+	margin-top:2px;
+	margin-left:0px;
+	font-size:14px;
+	color:darkgrey;
+}
+
+div.rightofhead input.searchbutton{
+	width:15%;
+	background-color: #F30A0E;
+	color:aliceblue;
+	margin-top:0px;
+	height:32px;
+	border-style:none;
+	margin-left:0px;
+}
+div.rightofhead input.searchbutton:hover,div.rightofhead input.searchbutton:active{
+	background-color:  firebrick;
+}
+div.rightofhead div a:link,div.rightofhead div a:visited{
+	text-align: center;
+	color: beige;
+	font-size:16px;
+	text-decoration: none;
+	
+}
+div.rightofhead div a:hover,div.rightofhead div a:active{
+	color:#16E494;
+	font-size: 17px;
+	text-decoration: underline;
+}
+div.head ul{
+	padding-left: 0px;
+	margin: auto;
+	width: 99.5%;
+	height:40px;
+	float: left;
+	position: absolute;
+}
+div.head ul li{
+	display: inline;
+	margin-left: 10px;
+	font-size: 28px;
+	color:aquamarine;
+	height:inherit;
+}
+div.head ul li:hover,div.head ul li:active{
+	background-color: grey;
+}
+div.head ul li a{
+	font-size: 20px;
+	text-decoration: none;
+}
+div.head ul li a:link,div.head ul li a:visited{
+	color:#C5BBBB;
+}
+div.head ul li a:hover,div.head ul li a:active{
+	color:ghostwhite;
+	text-decoration: underline;
+}/*导航栏结束*/
+.title{
+	width:100%;
+	height:50px;
+	margin-top:45px;
+	padding-top:19px;
+	font-size:17px;
+	color:black;
+	margin-left:30px;
+}
+.introduce{
+	width:100%;
+	height:340px;
+	background-color:white;
+	margin-top:5px;
+}
+.introducevideo{
+	width:36%;
+	height:auto;
+    float:left;
+}
+.rightofintroduce{
+	width:58%;
+    margin-left:1%;
+    float:left;
+}
+.time{
+	background-color:rgba(177,169,170,0.2);
+	width:75%;
+	height:95px;
+	color:darkgrey;
+}
+.moredetail{
+	width:100%;
+	background-color:rgba(166,162,162,0.3);
+	height:1500px;
+	padding-top:20px;
+}
+.moreinfo{
+	width:75%;
+	background-color:white;
+	height:1450px;
+	margin-left:20px;
+	float:left;
+}
+.teachers{
+	width:20%;
+	background-color:white;
+	height:auto;
+	margin-left:15px;
+	float:left;
+
+}
+.teacherstitle{
+	width:100%;
+	height:50px;
+}
+.teacherslist{
+	width:100%;
+	height:auto;
+	margin-top:15px;
+}
+.teacher{
+	width:100%;
+	height:90px;
+	padding-top:11px;
+}
+.teacherimg{
+	width:70px;
+	height:70px;
+	margin-left:35px;
+	float:left;
+}
+.teachername{
+	width:60%;
+	height:auto;
+	float:left;
+	margin-left:15px;
+	
+}
+.infotitle{
+	width:100%;
+	height:30px;
+	margin-top:30px;
+}
+.team{
+	width:86%;
+	margin-left:7%;
+	margin-right:7%;
+	height:150px;
+	padding:20px;
+	background:rgba(213,204,204,0.32);
+}
+.coursedetail{
+	margin-top:30px;
+	width:100%;
+	height:auto;
+}
+.introducedetail{
+	width:86%;
+	margin-left:7%;
+	margin-right:7%;
+	height:auto;
+	
+}

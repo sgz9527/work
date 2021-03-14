@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Teacher">
+    <id column="teacherId" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacherAccount" jdbcType="VARCHAR" property="teacherAccount" />
+    <result column="teacherName" jdbcType="VARCHAR" property="teacherName" />
+    <result column="teacherPassword" jdbcType="VARCHAR" property="teacherPassword" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="teacherPic" jdbcType="VARCHAR" property="teacherPic" />
+    <result column="teacherIntroduce" jdbcType="VARCHAR" property="teacherIntroduce" />
+    <result column="commentNum" jdbcType="INTEGER" property="commentNum" />
+    <result column="belongSchId" jdbcType="VARCHAR" property="belongSchId" />
+    <result column="createDate" jdbcType="VARCHAR" property="createDate" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="belongSchName" jdbcType="VARCHAR" property="belongSchName" />
+    <result column="teacherSex" jdbcType="VARCHAR" property="teacherSex" />
+    <result column="teacherLevel" jdbcType="VARCHAR" property="teacherLevel" />
+    <result column="teacherPhone" jdbcType="VARCHAR" property="teacherPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    teacherId, teacherAccount, teacherName, teacherPassword, type, teacherPic, teacherIntroduce, 
+    commentNum, belongSchId, createDate, Email, belongSchName, teacherSex, teacherLevel, 
+    teacherPhone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacher
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByAccountAndPassword" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM teacher
+    where teacherAccount=#{TeacherAccount}
+    and
+    teacherPassword=#{TeacherPassword}
+  </select>
+  <select id="selectByAccount" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM teacher
+    where teacherAccount=#{teacherAccount}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teacher
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Teacher">
+    insert into teacher (teacherId, teacherAccount, teacherName, 
+      teacherPassword, type, teacherPic, 
+      teacherIntroduce, commentNum, belongSchId, 
+      createDate, Email, belongSchName, 
+      teacherSex, teacherLevel, teacherPhone
+      )
+    values (#{teacherId,jdbcType=INTEGER}, #{teacherAccount,jdbcType=VARCHAR}, #{teacherName,jdbcType=VARCHAR}, 
+      #{teacherPassword,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{teacherPic,jdbcType=VARCHAR}, 
+      #{teacherIntroduce,jdbcType=VARCHAR}, #{commentNum,jdbcType=INTEGER}, #{belongSchId,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{belongSchName,jdbcType=VARCHAR}, 
+      #{teacherSex,jdbcType=VARCHAR}, #{teacherLevel,jdbcType=VARCHAR}, #{teacherPhone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Teacher">
+    insert into teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teacherId != null">
+        teacherId,
+      </if>
+      <if test="teacherAccount != null">
+        teacherAccount,
+      </if>
+      <if test="teacherName != null">
+        teacherName,
+      </if>
+      <if test="teacherPassword != null">
+        teacherPassword,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="teacherPic != null">
+        teacherPic,
+      </if>
+      <if test="teacherIntroduce != null">
+        teacherIntroduce,
+      </if>
+      <if test="commentNum != null">
+        commentNum,
+      </if>
+      <if test="belongSchId != null">
+        belongSchId,
+      </if>
+      <if test="createDate != null">
+        createDate,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="belongSchName != null">
+        belongSchName,
+      </if>
+      <if test="teacherSex != null">
+        teacherSex,
+      </if>
+      <if test="teacherLevel != null">
+        teacherLevel,
+      </if>
+      <if test="teacherPhone != null">
+        teacherPhone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherAccount != null">
+        #{teacherAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPassword != null">
+        #{teacherPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPic != null">
+        #{teacherPic,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIntroduce != null">
+        #{teacherIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        #{belongSchId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchName != null">
+        #{belongSchName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherSex != null">
+        #{teacherSex,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherLevel != null">
+        #{teacherLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPhone != null">
+        #{teacherPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Teacher">
+    update teacher
+    <set>
+      <if test="teacherAccount != null">
+        teacherAccount = #{teacherAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        teacherName = #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPassword != null">
+        teacherPassword = #{teacherPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPic != null">
+        teacherPic = #{teacherPic,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIntroduce != null">
+        teacherIntroduce = #{teacherIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        commentNum = #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="belongSchId != null">
+        belongSchId = #{belongSchId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="belongSchName != null">
+        belongSchName = #{belongSchName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherSex != null">
+        teacherSex = #{teacherSex,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherLevel != null">
+        teacherLevel = #{teacherLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPhone != null">
+        teacherPhone = #{teacherPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Teacher">
+    update teacher
+    set teacherAccount = #{teacherAccount,jdbcType=VARCHAR},
+      teacherName = #{teacherName,jdbcType=VARCHAR},
+      teacherPassword = #{teacherPassword,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      teacherPic = #{teacherPic,jdbcType=VARCHAR},
+      teacherIntroduce = #{teacherIntroduce,jdbcType=VARCHAR},
+      commentNum = #{commentNum,jdbcType=INTEGER},
+      belongSchId = #{belongSchId,jdbcType=VARCHAR},
+      createDate = #{createDate,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      belongSchName = #{belongSchName,jdbcType=VARCHAR},
+      teacherSex = #{teacherSex,jdbcType=VARCHAR},
+      teacherLevel = #{teacherLevel,jdbcType=VARCHAR},
+      teacherPhone = #{teacherPhone,jdbcType=VARCHAR}
+    where teacherId = #{teacherId,jdbcType=INTEGER}
+  </update>
+</mapper>

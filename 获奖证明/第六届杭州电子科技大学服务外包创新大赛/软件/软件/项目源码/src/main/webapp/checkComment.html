@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>评论审核</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="checkCommentList">
+    <div class="oneCheckComment" style="width:80%;margin-left:5%;height:auto;border-style: solid;border-width:1px;border-color:darkgrey;margin-top:2%;">
+    <div class="topCheckComment" ><span id="commentWriter" style="color:mediumpurple">张伟</span>&nbsp&nbsp
+        <span id="commentTime" style="color:darkgrey">2019-3-2 5:32:03</span>
+    </div>
+    <div>评论详情:</div>
+    <div class="mediumCheckComment" style="margin-left:3%;"><p style="word-break:break-all;color:orangered">包含发表的内容详情</p></div>
+    <div class="bottomCheckComment">
+        <span id="forbidenDay" style="display:block;float:right;"> <input type="number"  value="0" style="width:15%;">天</span>
+        <input type="button" value="禁言" style="float:right;margin-right:2%;"><input type="button" value="审核通过" style="float:right;margin-right:2%;">
+    </div>
+</div>
+    <hr>
+</div>
+<div class="checkTopicList"></div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url:"showCheckComment",
+            dataType:"json",
+            cache:false,
+            success:function(data){
+                $(".checkCommentList").empty();
+                $.each(data,function(i,values){
+                    var htmStr='<div class="oneCheckComment" style="width:80%;margin-left:5%;height:auto;border-style: solid;border-width:1px;border-color:darkgrey;margin-top:2%;">\n' +
+                        '    <div class="topCheckComment" ><span id="commentWriter'+values.commentId+'" style="color:mediumpurple">'+values.commentWriterName+'</span>&nbsp&nbsp\n' +
+                        '        <span  style="color:darkgrey">'+values.commentTime+'</span>\n' +
+                        '    </div>\n' +
+                        '    <div>评论详情:</div>\n' +
+                        '    <div class="mediumCheckComment" style="margin-left:3%;"><p style="word-break:break-all;color:orangered">'+values.commentInfo+'</p></div>\n' +
+                        '    <div class="bottomCheckComment">\n' +
+                        '        <span style="display:block;float:right;"> <input type="number"  value="2" id="forbidenDay'+values.commentWriterId+'" style="width:25%;" >天</span>\n' +
+                        '        <input type="button" value="禁言" class="forbidenBtn" id="forbidenBtn'+values.commentId+'" style="float:right;margin-right:2%;"><input type="button" value="审核通过" class="checkPassBtn" id="checkPassBtn'+values.commentId+'"style="float:right;margin-right:2%;">\n' +
+                        '    </div>\n' +
+                        '<input type="hidden" id="'+values.commentId+'" value="'+values.commentWriterId+'">'+
+                        '</div>'+
+                        '<hr>';
+                    $(".checkCommentList").append(htmStr);
+                })
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+    })
+    $(document).on('click','.forbidenBtn',function(){
+        var ids=$(this).attr("id");
+        var commentId=ids.substr(11,8);
+        //alert(commentId);
+        var commentWriterId=$("#"+commentId).val();
+        var forbidenDay=$("#forbidenDay"+commentWriterId).val();
+        //alert(commentWriterId);
+        $.ajax({
+            url:"forbidenComment",
+            dataType:"json",
+            data:{
+                "messageCommentId":commentId,
+                "belongStudentId":commentWriterId,
+                "forbidenDay":forbidenDay
+            },
+            cache:false,
+            success:function(data){
+                alert("ok");
+                window.location.reload();
+            },
+            error:function(e){
+                alert(e.responseText);
+            }
+        })
+
+    })
+</script>

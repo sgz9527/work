@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.TrainingMapper">
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Training">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course" jdbcType="INTEGER" property="course" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="releaseDate" jdbcType="VARCHAR" property="releaseDate" />
+    <result column="deadline" jdbcType="VARCHAR" property="deadline" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course, name, content, releaseDate, deadline
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from training
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from training
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Training">
+    insert into training (id, course, name, 
+      content, releaseDate, deadline
+      )
+    values (#{id,jdbcType=INTEGER}, #{course,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{releaseDate,jdbcType=VARCHAR}, #{deadline,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Training">
+    insert into training
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="releaseDate != null">
+        releaseDate,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null">
+        #{releaseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Training">
+    update training
+    <set>
+      <if test="course != null">
+        course = #{course,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null">
+        releaseDate = #{releaseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Training">
+    update training
+    set course = #{course,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      releaseDate = #{releaseDate,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqq.dao.Test_scoreMapper">
+  <resultMap id="CourseMap" type="com.xqq.pojo.Course">
+    <id column="courseId" jdbcType="INTEGER" property="courseId" />
+    <result column="courseName" jdbcType="VARCHAR" property="courseName" />
+    <result column="courseIntroduce" jdbcType="VARCHAR" property="courseIntroduce" />
+    <result column="coursePostSrc" jdbcType="VARCHAR" property="coursePostSrc" />
+    <result column="courseProgress" jdbcType="INTEGER" property="courseProgress" />
+    <result column="belongSchId" jdbcType="INTEGER" property="belongSchId" />
+    <result column="courseType" jdbcType="VARCHAR" property="courseType" />
+    <result column="introduceVideoSrc" jdbcType="VARCHAR" property="introduceVideoSrc" />
+    <result column="evaluationLevel" jdbcType="VARCHAR" property="evaluationLevel" />
+    <result column="evaluationExamWeight" jdbcType="DOUBLE" property="evaluationExamWeight" />
+    <result column="evaluationChatWeight" jdbcType="DOUBLE" property="evaluationChatWeight" />
+    <result column="evaluationTestWeight" jdbcType="DOUBLE" property="evaluationTestWeight" />
+    <result column="examStartTime" jdbcType="DATE" property="examStartTime" />
+    <result column="examEndTime" jdbcType="DATE" property="examEndTime" />
+    <result column="examSuplement" jdbcType="VARCHAR" property="examSuplement" />
+    <result column="examLimitTime" jdbcType="DOUBLE" property="examLimitTime" />
+    <result column="examOneTitle" jdbcType="VARCHAR" property="examOneTitle" />
+    <result column="examOneAnswer" jdbcType="VARCHAR" property="examOneAnswer" />
+    <result column="examTwoTitle" jdbcType="VARCHAR" property="examTwoTitle" />
+    <result column="examTwoAnswer" jdbcType="VARCHAR" property="examTwoAnswer" />
+    <result column="examThreeTitle" jdbcType="VARCHAR" property="examThreeTitle" />
+    <result column="examThreeAnswer" jdbcType="VARCHAR" property="examThreeAnswer" />
+    <result column="examFourTitle" jdbcType="VARCHAR" property="examFourTitle" />
+    <result column="examFourAnswer" jdbcType="VARCHAR" property="examFourAnswer" />
+    <result column="examFiveTitle" jdbcType="VARCHAR" property="examFiveTitle" />
+    <result column="examFiveAnswer" jdbcType="VARCHAR" property="examFiveAnswer" />
+    <result column="examPublishTeacherId" jdbcType="INTEGER" property="examPublishTeacherId" />
+    <result column="examPass" jdbcType="TINYINT" property="examPass" />
+  </resultMap>
+  <resultMap id="ChapterMap" type="com.xqq.pojo.Chapter">
+    <id column="chapterId" jdbcType="INTEGER" property="chapterId" />
+    <result column="chapterTitle" jdbcType="VARCHAR" property="chapterTitle" />
+    <result column="chapterName" jdbcType="VARCHAR" property="chapterName" />
+    <result column="belongCourseId" jdbcType="INTEGER" property="belongCourseId" />
+    <association property="course" javaType="com.xqq.pojo.Course" resultMap="CourseMap"></association>
+  </resultMap>
+  <resultMap id="TestMap" type="com.xqq.pojo.Test">
+    <id column="testId" jdbcType="INTEGER" property="testId" />
+    <result column="testName" jdbcType="VARCHAR" property="testName" />
+    <result column="testStartTime" jdbcType="VARCHAR" property="testStartTime" />
+    <result column="testEndTime" jdbcType="DATE" property="testEndTime" />
+    <result column="testAllMark" jdbcType="INTEGER" property="testAllMark" />
+    <result column="submitCount" jdbcType="INTEGER" property="submitCount" />
+    <result column="testType" jdbcType="VARCHAR" property="testType" />
+    <result column="limitTime" jdbcType="VARCHAR" property="limitTime" />
+    <result column="testIntro" jdbcType="VARCHAR" property="testIntro" />
+    <result column="belongChapterId" jdbcType="INTEGER" property="belongChapterId" />
+    <result column="publicTeacherId" jdbcType="INTEGER" property="publicTeacherId" />
+    <association property="chapter" javaType="com.xqq.pojo.Chapter" resultMap="ChapterMap"></association>
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.xqq.pojo.Test_score">
+    <id column="scoreId" jdbcType="INTEGER" property="scoreId" />
+    <result column="studentId" jdbcType="INTEGER" property="studentId" />
+    <result column="score" jdbcType="REAL" property="score" />
+    <result column="testId" jdbcType="INTEGER" property="testId" />
+    <result column="alreadyCount" jdbcType="INTEGER" property="alreadyCount" />
+    <association property="test" javaType="com.xqq.pojo.Test" resultMap="TestMap"></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    scoreId, studentId, score, testId, alreadyCount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_score
+    where scoreId = #{scoreId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentIdAndTestId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from test_score
+    where studentId = #{studentId,jdbcType=INTEGER}
+    and testId=#{testId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentIdAndCourseId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from test_score
+    where studentId=#{studentId,jdbcType=INTEGER} and testId in
+    (select testId from test where test.belongChapterId IN
+    (select chapterId from chapter where chapter.belongCourseId=#{courseId,jdbcType=INTEGER}))
+  </select>
+  <select id="selectByTestId" parameterType="Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from test_score
+    where testId = #{testId,jdbcType=INTEGER}
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_score
+    where scoreId = #{scoreId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByStudentIdAndCourseId" >
+    delete from test_score
+    where studentId=#{studentId,jdbcType=INTEGER} and testId in
+    (select testId from test where test.belongChapterId IN
+    (select chapterId from chapter where chapter.belongCourseId=#{courseId,jdbcTy
+  </delete>
+  <insert id="insert" parameterType="com.xqq.pojo.Test_score">
+    insert into test_score (scoreId, studentId, score, 
+      testId, alreadyCount)
+    values (#{scoreId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{score,jdbcType=REAL}, 
+      #{testId,jdbcType=INTEGER}, #{alreadyCount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqq.pojo.Test_score">
+    insert into test_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scoreId != null">
+        scoreId,
+      </if>
+      <if test="studentId != null">
+        studentId,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="testId != null">
+        testId,
+      </if>
+      <if test="alreadyCount != null">
+        alreadyCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scoreId != null">
+        #{scoreId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=REAL},
+      </if>
+      <if test="testId != null">
+        #{testId,jdbcType=INTEGER},
+      </if>
+      <if test="alreadyCount != null">
+        #{alreadyCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqq.pojo.Test_score">
+    update test_score
+    <set>
+      <if test="studentId != null">
+        studentId = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=REAL},
+      </if>
+      <if test="testId != null">
+        testId = #{testId,jdbcType=INTEGER},
+      </if>
+      <if test="alreadyCount != null">
+        alreadyCount = #{alreadyCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where scoreId = #{scoreId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqq.pojo.Test_score">
+    update test_score
+    set studentId = #{studentId,jdbcType=INTEGER},
+      score = #{score,jdbcType=REAL},
+      testId = #{testId,jdbcType=INTEGER},
+      alreadyCount = #{alreadyCount,jdbcType=INTEGER}
+    where scoreId = #{scoreId,jdbcType=INTEGER}
+  </update>
+  <update id="updateAlreadyCount" parameterType="java.lang.Integer">
+    update test_score
+    set
+    alreadyCount = alreadyCount+1
+    where studentId = #{studentId,jdbcType=INTEGER}
+    and testId=#{testId,jdbcType=INTEGER}
+  </update>
+  <update id="updateScore" >
+    update test_score
+    set
+    score = #{score,jdbcType=REAL}
+    where studentId = #{studentId,jdbcType=INTEGER}
+    and testId=#{testId,jdbcType=INTEGER}
+  </update>
+</mapper>
