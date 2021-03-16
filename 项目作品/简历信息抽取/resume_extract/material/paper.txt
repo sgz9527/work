@@ -1,0 +1,466 @@
+﻿[1]孙卫琴,李洪成.《Tomcat 与 JSP Web 开发技术详解》.电子工业出版社,2003年6月:1-205
+#---#　
+[2]BruceEckel.《JSP编程思想》. 机械工业出版社,2003年10月:1-378
+#---#
+[3]FLANAGAN.《JSP技术手册》. 中国电力出版社,2002年6月:1-465
+#---#
+[4]孙一林,彭波.《JSP数据库编程实例》. 清华大学出版社,2002年8月:30-210
+#---#　　
+[5]LEE ANNE PHILLIPS.《巧学活用HTML4》.电子工业出版社,2004年8月:1-319
+#---#　　
+[6]飞思科技产品研发中心.《JSP应用开发详解》.电子工业出版社,2003年9月:32-300
+#---#　　
+[7]耿祥义,张跃平.《JSP实用教程》. 清华大学出版社,2003年5月1日:1-354
+#---#
+[8]孙涌.《现代软件工程》.北京希望电子出版社,2003年8月:1-246
+#---#
+[9]萨师煊，王珊.《数据库系统概论》.高等教育出版社,2002年2月:3-460
+#---#
+[10]Brown等.《JSP编程指南(第二版)》. 电子工业出版社 ,2003年3月:1-268
+#---# 　　
+[11]清宏计算机工作室.《JSP编程技巧》. 机械工业出版社, 2004年5月:1-410 　　
+#---#
+[12]朱红,司光亚.《JSP Web编程指南》.电子工业出版社, 2001年9月:34-307 　　
+#---#
+[13]赛奎春.《JSP工程应用与项目实践》. 机械工业出版社, 2002年8月:23- 　　
+#---#
+[14] 刁仁宏.网络数据库原理及应用[J].情报理论与实践,2004,(1). 　　
+#---#
+[15] 张莉,王强.SQL Server 数据库原理及应用教程[M].清华：清华大学出版社出版,2003. 　　
+#---#
+[16] 郭瑞军,李杰,初晓璐. ASP.NET 数据库开发实例精粹[M].西安：电子工业出 版社出版,2003. 　　
+#---#
+[17] 宋昕.ASP.NET 网络开发技术实用教程入门与提高[J].情报杂志,2005,(7). 　　
+#---#
+[18] 顼宇峰.ASP.NET+SQL Server 典型网站建设案例[M].清华：清华大学出版社出版,2006. 　　
+#---#
+[19] 曾登高编著..NET 系统架构与开发. 北京：电子工业出版社，2003. 　　
+#---#
+[20] Jeffrey Richter. Applied Microsoft .NET Framework programming.北京：清华大学出版社， 2003. 　　
+#---#
+[21] 张海藩. 软件工程导论. 北京：清华大学出版社， 2003.
+#---#
+[21] 周佩德.数据库原理及应用〔M〕.北京：电子工业出版社，2004. 　
+#---#
+Guest Editorial: Special issue on "Application of artificial intelligence in health research".
+Siuly Siuly Health information science and systems 2020-1 外文期刊 10.1007/s13755-019-0089-x
+#---#
+Reducing the regulatory burden: How can technology revolutionise compliance processes and make complying with multiple regulations more efficient?
+Deborah Traversa Journal of Financial Compliance 2020-2 外文期刊
+This paper summarises how new technologies can improve efficiency and effectiveness in complying with multiple regulations. It analyses the key drivers that may drive this technological revolution and the reasons why this revolution shoul
+#---#
+Financial industry compliance with Big Data and analytics
+Christina McGlosson Journal of Financial Compliance 2020-2 外文期刊
+The use of Big Data, machine learning and artificial intelligence (AI) is rapidly reshaping the financial regulatory landscape and changing ways in which financial institutions manage risks and ensure regulatory compliance. On one side, r
+#---#
+4
+Performance comparison of bubble point pressure from oil PVT data: Several neurocomputing techniques compared
+Hamzeh Ghorbani Experimental and Computational Multiphase Flow 2020-4 外文期刊 10.1007/s42757-019-0047-5
+Abstract(#br)Pressure–Volume–Temperature (PVT) characterization of a crude oil involves establishing its bubble point pressure, which is the pressure at which the first gas bubble forms on a fluid sample while reducing pressure at a stabi
+#---#
+5
+Decontamination of methylene Blue from simulated wastewater by the mesoporous rGO/Fe/Co nanohybrids: Artificial intelligence modeling and optimization
+Jimei Qi Materials Today Communications 2020- 外文期刊 10.1016/j.mtcomm.2019.100709
+Abstract(#br)Decontamination of dye wastewater by nanomaterials has attracted an increasing attention. The mesoporous rGO/Fe/Co nanohybrids prepared by the co-precipitation method were used to decontaminate methylene blue (MB) from simula
+#---#
+6
+A flexible pressure sensor based on melamine foam capped by copper nanowires and reduced graphene oxide
+Yaoxu Xiong Materials Today Communications 2020- 外文期刊 10.1016/j.mtcomm.2020.100970
+Abstract(#br)High-performance flexible pressure sensors with high sensitivity and large sensing range are vital components of the system for physiological signals collection, human-machine interaction and artificial intelligence. Herein,
+#---#
+7
+Metabolic pathway engineering: Perspectives and applications
+Abhijit Dasgupta Computer Methods and Programs in Biomedicine 2020- 外文期刊 10.1016/j.cmpb.2020.105436
+Abstract(#br)Background: Metabolic engineering aims at contriving microbes as biocatalysts for enhanced and cost-effective production of countless secondary metabolites. These secondary metabolites can be treated as the resources of indus
+#---#
+8
+Design of an adaptive examination system based on artificial intelligence recognition model
+Nan Wang Mechanical Systems and Signal Processing 2020- 外文期刊 10.1016/j.ymssp.2020.106656
+Abstract(#br)Nowadays, with the change of the times, the traditional paper-and-pencil examination can not satisfy the students' test. For students of different levels, it is difficult to say that the best test effect can be achieved by pa
+#---#
+9
+Effect of Initial Synaptic State on Pattern Classification Accuracy of 3D Vertical Resistive Random Access Memory (VRRAM) Synapses.
+Sun Wookyung Journal of nanoscience and nanotechnology 2020-8 外文期刊 10.1166/jnn.2020.17798
+Amidst the considerable attention artificial intelligence (AI) has attracted in recent years, a neuromorphic chip that mimics the biological neuron has emerged as a promising technology. Memristor or Resistive random-access memory (RRAM)
+#---#
+10
+Profit driven decision trees for churn prediction
+Sebastiaan H?ppner European Journal of Operational Research 2020-3 外文期刊 10.1016/j.ejor.2018.11.072
+Abstract(#br)Customer retention campaigns increasingly rely on predictive models to detect potential churners in a vast customer base. From the perspective of machine learning, the task of predicting customer churn can be presented as a b
+#---#
+11
+Predicting uniaxial compressive strength of oil palm shell concrete using a hybrid artificial intelligence model
+Junfei Zhang Journal of Building Engineering 2020- 外文期刊 10.1016/j.jobe.2020.101282
+Abstract(#br)The replacement of natural coarse aggregate (NCA) by oil palm shell (OPS) in concrete mixture offers various advantages such as conservation of natural resources, reduction of CO 2 emission, and cost saving. However, mechanic
+#---#
+12
+Forecasting artificial intelligence on online customer assistance: Evidence from chatbot patents analysis
+Eleonora Pantano Journal of Retailing and Consumer Services 2020- 外文期刊 10.1016/j.jretconser.2020.102096
+Abstract(#br)The main goal of this research is to provide a comprehensive understanding of the actual progresses in artificial intelligence, with emphasis on chatbots as emerging forms of customer assistance in online retailing. Drawing u
+#---#
+13
+Forecasting energy consumption and wind power generation using deep echo state network
+Huanling Hu Renewable Energy 2020- 外文期刊 10.1016/j.renene.2020.03.042
+Abstract(#br)Accurate energy forecasting is of great significance for the energy sector to formulate short-term plans and long-term development strategies for meeting energy needs. This study develops a stacked hierarchy of reservoirs (De
+#---#
+14
+The role of AI in capital structure to enhance corporate funding strategies
+Ashkan Eliasy Array 2020- 外文期刊 10.1016/j.array.2020.100017
+Abstract(#br)The purpose of this study was to assess if Artificial Intelligence (AI) could be used in the Capital Asset Pricing Model (CAPM) and whether the use of AI could bring a more accurate estimation of expected returns. Cost of cap
+#---#
+15
+Large-Scale decision-making: Characterization, taxonomy, challenges and future directions from an Artificial Intelligence and applications perspective
+Ru-Xi Ding Information Fusion 2020- 外文期刊 10.1016/j.inffus.2020.01.006
+Abstract(#br)The last decade witnessed tremendous developments in social media and e-democracy technologies. A fundamental aspect in these paradigms is that the number of decision makers allowed to partake in a decision making event drast
+#---#
+16
+Development and use of a clinical decision support system for the diagnosis of social anxiety disorder
+Sina Fathi Computer Methods and Programs in Biomedicine 2020- 外文期刊 10.1016/j.cmpb.2020.105354
+Abstract(#br)Background(#br)Mental disorders, according to the definition of World Health Organization, consist of a wide range of signs, which are generally specified by a combination of unusual thoughts, feelings, behavior, and relation
+#---#
+17
+Machine learning algorithm as a diagnostic tool for hypoadrenocorticism in dogs
+K.L. Reagan Domestic Animal Endocrinology 2020- 外文期刊 10.1016/j.domaniend.2019.106396
+Abstract(#br)Canine hypoadrenocorticism (CHA) is a life-threatening condition that affects approximately 3 of 1,000 dogs. It has a wide array of clinical signs and is known to mimic other disease processes, including kidney and gastrointe
+#---#
+18
+Evaluation of machine learning methods to stroke outcome prediction using a nationwide disease registry
+Ching-Heng Lin Computer Methods and Programs in Biomedicine 2020- 外文期刊 10.1016/j.cmpb.2020.105381
+Abstract(#br)Introduction(#br)Being able to predict functional outcomes after a stroke is highly desirable for clinicians. This allows clinicians to set reasonable goals with patients and relatives, and to reach shared after-care decision
+#---#
+19
+Poverty alleviation ecosystem evolutionary game on smart supply chain platform under the government financial platform incentive mechanism
+Xiaole Wan Journal of Computational and Applied Mathematics 2020- 外文期刊 10.1016/j.cam.2019.112595
+Abstract(#br)Artificial intelligence, machine learning and big data computing promote the development of smart supply chain. The cooperative poverty alleviation model with multi-subject participation composed of cooperative, smart supply
+#---#
+20
+Can tablet apps support the learning of handwriting? An investigation of learning outcomes in kindergarten classroom
+Nathalie Bonneton-Botté Computers & Education 2020- 外文期刊 10.1016/j.compedu.2020.103831
+Abstract(#br)Digital technologies are increasingly being used to support school learning, but few studies have assessed the effectiveness of these new teaching methods for very young students . The aim of the present study was to assess t
+#---#　
+[22] 刘炳文等.VISUAL BASIC 程序设计——数据库篇〔M〕.北京：人民邮电出版社，1999.
+#---# 　　
+[23] 李光明.Visual Basic 6.0 编程实例大制作〔M〕.北京：冶金工业出版社，2002.
+#---# 　　
+[24] 王兴晶，赵万军等.Visual Basic 软件项目开发实例[M].北京：电子工业出版社,2004.
+#---# 　　
+[25] 陈艳峰，高文姬等.Visual basic 数据库项目案例导航[M].北京:清华大学出版社,2004.
+#---# 　　
+[26] 李红等.管理信息系统开发与应用〔M〕.北京：电子工业出版社，2003.
+#---#　　
+[27] 周之英.现代软件工程〔M〕.北京：科学出版社，2000. 
+#---#　　
+[28] 张红军，王红.Visual Basic 6.0 中文版高级应用与开发指南〔M〕.北京：人民邮电出版社，2001.
+#---# 　　
+[29] 刘韬，楼兴华.SQL Server2000 数据库系统开发实例导航. 北京:人民邮电出版社，2004.
+#---#　　
+[30] 丁宝康，董健全. 数据库实验教程. 北京：清华大学出版社， 2003：125-170.
+#---#
+[1]王琨. Linux操作系统下的网络多媒体技术应用[D].西安电子科技大学,2001.#---#
+
+　　[2]陆海波. 智能型掌上电脑（PDA）的研究与开发[D].电子科技大学,2001.#---#
+
+　　[3]高玉金. WINDOWS环境下并行容错局域网的研究及实现[D].燕山大学,2000.#---#
+
+　　[4]陈军. 分布式存储环境下并行计算可扩展性的研究与应用[D].中国人民解放军国防科学技术大学,2000.#---#
+
+　　[5]王霜. 瓦楞纸箱CAD系统开发[D].四川大学,2000.#---#
+
+　　[6]王茂均. 织带机智能监测管理系统研究[D].大连理工大学,2000.#---#
+
+　　[7]郭朝华. 多处理器并行的星上计算机系统设计[D].中国科学院上海冶金研究所,2000.#---#
+
+　　[8]刘胜. 拖拉机作业机组仿真试验台自动变速控制系统的研究[D].中国农业大学,2000.#---#
+
+　　[9]陈新昌. 冷藏、保温汽车静态降温调温性能测试系统的研究[D].河南农业大学,2000.#---#
+
+　　[10]毛鹏军. 智能化温室环境参数微机监控系统的设计研究[D].河南农业大学,2000.#---#
+
+　　[11]史志存. 电子鼻及其应用研究[D].中国科学院电子学研究所,2000.#---#
+
+　　[12]孟笛. 复合材料加筋板壳结构稳定性设计的可视化研究和实现[D].大连理工大学,2000.#---#
+
+　　[13]刘鹏民. 涡街电磁流量计机理的研究与开发[D].北京化工大学,2000.#---#
+
+　　[14]付岩. 通用脚本语言GSCRIPT设计与应用的研究[D].中国科学院研究生院（计算技术研究所）,2000.#---#
+
+　　[15]石争浩. 《计算机组成原理》CAI及其多媒体课件实现技术研究[D].西安理工大学,2000.#---#
+
+　　[16]姚彤. 农机销售管理信息系统的设计与开发[D].东北农业大学,2000.#---#
+
+　　[17]吕康娟. 基于地理信息系统(GIS)的小流域综合治理规划的研究[D].东北农业大学,2000.#---#
+
+　　[18]邱建民. 北工大研究生教育管理信息系统[D].北京工业大学,2000.#---#
+
+　　[19]刘春明. 变电站电压无功控制装置实用技术研究[D].华北电力大学,2000.#---#
+
+　　[20]刘力力. 计算机系统性能评测与分析[D].中国科学院研究生院（计算技术研究所）,2000.#---#
+
+　　[21]宋蓬勃. 基于校园网的高校研究生教务管理系统[D].山东师范大学,2000.#---#
+
+　　[22]陈永华. WebGIS三维可视化的研究[D].解放军信息工程大学,2000.#---#
+
+　　[23]潘炜华. 新生隐球菌分子重组操作系统的建立及其荚膜相关基因的研究[D].第二军医大学,2000.
+
+#---#　　[24]杨群生. 模糊联想记忆网络和模糊图象处理研究[D].华南理工大学,2000.
+
+#---#　　[25]牛红军. 自动车辆定位系统的研究[D].西安理工大学,2000.
+
+#---#　　[26]张志强. 网络环境下住房公积金管理信息系统的研究[D].华北电力大学,2000.
+
+#---#　　[27]王笑风. 路面摊铺机械自动调平控制器的仿真测试器的研究[D].长安大学,2000.
+
+#---#　　[28]黄晓华. 壁板铣床数控系统硬件结构的研究与开发[D].大连理工大学,2000.
+
+#---#　　[29]景玲玲. 河南省公路地理信息系统的研制与开发[D].大连理工大学,2000.
+
+#---#　　[30]李吉宽. 单片机模糊控制在船舶电站自动并车中的应用[D].大连海事大学,2000.
+
+#---#　　计算机专业毕业论文参考文献二：
+
+　　[31]徐洪禹. 面向只读应用的分布式数据库的模型构造及查询优化的研究[D].大连理工大学,2000.
+
+#---#　　[32]李卫东. 微机控制LED点阵显示屏[D].大连理工大学,2000.
+
+#---#　　[33]常天海. 希望-IV型多媒体语音教室系统的研究与设计[D].大连理工大学,2000.
+
+#---#　　[34]解宏基. 变频调速矢量控制交流三相异步电动机的仿真研究[D].大连海事大学,2000.
+
+#---#　　[35]宋东方. 基于公路养护管理的GIS应用与开发[D].大连理工大学,2000.
+
+#---#　　[36]王晓丽. 工程图扫描输入与智能识别技术的研究[D].大连理工大学,2000.
+
+#---#　　[37]田宇. 基于客户机/服务器的大连市血液中心管理信息系统[D].大连理工大学,2000.
+
+#---#　　[38]杨敬辉. 基于Intranet的大连市血液中心管理信息系统[D].大连理工大学,2000.
+
+#---#　　[39]任彬. 一种新型的水表联网抄表系统[D].大连理工大学,2000.
+
+#---#　　[40]童晨涛. 港口调度现代信息网络的研究[D].大连海事大学,2000.
+
+#---#　　[41]李德良. 基于寄生传输的检测报警系统[D].大连理工大学,2000.
+
+#---#　　[42]侯宗浩. 集成C/S、B/S结构的物资采供系统研究[D].西安理工大学,2000.
+
+#---#　　[43]雷晓强. 冗余度机器人的轨迹规划与障碍物回避的实时控制[D].西安理工大学,2000.
+
+#---#　　[44]徐前锋. 多模型优化模糊控制算法的应用研究[D].西安理工大学,2000.
+
+#---#　　[45]杨沂. 基于Intranet的电力综合管理信息系统分析与设计及用户满意度评价方法的研究[D].西安理工大学,2000.
+
+#---#　　[46]张怀领. 异构环境下的分布式数据库事务处理的研究与实践[D].大连理工大学,2000.
+
+#---#　　[47]王振华. 近海结构基础设计程序系统[D].大连理工大学,2000.
+
+#---#　　[48]王琳. 基于软计算的智能控制器的研究[D].大连海事大学,2000.
+
+#---#　　[49]何志刚. 基于Internet/Intranet技术的MIS应用与开发[D].大连海事大学,2000.
+
+#---#　　[50]刘中兵. 焊缝图象识别的研究及应用[D].大连理工大学,2000.
+
+#---#　　[51]崔鸿远. 玉米播种机工况监测系统的研究与试验[D].中国农业大学,2000.
+
+#---#　　[52]田健. 超音频感应加热电源的研制[D].西安理工大学,2000.
+
+#---#　　[53]祝华军. 小城镇规划及基础设施投资问题研究[D].中国农业大学,2000.
+
+#---#　　[54]孙毅. 渭河洪水错峰调度决策支持系统[D].西安理工大学,2000.
+
+#---#　　[55]张寿桂. 厦门港集装箱运输MIS总体规划研究[D].大连海事大学,2000.
+
+#---#　　[56]王涛. 船舶管理信息系统的研究[D].大连海事大学,2000.
+
+#---#　　[57]杨媛. 智能化超声波水流量计的理论分析与软件开发[D].西安理工大学,2000.
+
+#---#　　[58]史庆国. 壁面机器人路径规划与控制系统研究[D].河北工业大学,2000.
+
+#---#　　[59]田永青. 模糊控制系统的结构化分析[D].河北工业大学,2000.
+
+#---#　　[60]丁承君. 基于神经网络和模糊控制的移动机器人墙跟踪[D].河北工业大学,2000.
+
+#---#　　计算机专业毕业论文参考文献三：
+
+　　[61]周颖. 基于模糊滑动面的滑动模态控制方法研究[D].河北工业大学,2000.
+
+#---#　　[62]张建华. 集中供热系统的水力计算及地理信息系统的开发[D].华北电力大学,2000.
+
+#---#　　[63]徐延明. 地理信息系统在配电管理系统中的应用研究[D].华北电力大学,2000.
+
+#---#　　[64]于成. 综合船舶信息处理与显示系统[D].大连海事大学,2000.
+
+#---#　　[65]苏利敏. 新型串级调速系统的研究[D].河北工业大学,2000.
+
+#---#　　[66]刘丽华. 大功率超声发生器的研制及超声乳化的实验研究[D].华北电力大学,2000.
+
+#---#　　[67]孙东卫. 都江堰水利自动化控制系统设计[D].电子科技大学,1999.
+
+#---#　　[68]胡霞光. 青藏公路CAE系统的研究与开发[D].长安大学,1999.
+
+#---#　　[69]尹宏宾. 智能化信号交叉口控制及其交通量预测方法的研究[D].华南理工大学,1999.
+
+#---#　　[70]邱焕耀. 模糊控制、神经网络和变结构控制的交叉结合及其应用研究[D].华南理工大学,1999.
+
+#---#　　[71]张星明. 地质图象处理算法的研究与实现[D].中国科学院研究生院（计算技术研究所）,1999.
+
+#---#　　[72]孟小峰. 中文数据库自然语言查询处理研究[D].中国科学院研究生院（计算技术研究所）,1999.
+
+#---#　　[73]王灏. 机器人智能控制方法研究[D].华南理工大学,1999.
+
+#---#　　[74]庄圣贤. 无传感速度伺服矢量变频调速系统的研究[D].电子科技大学,1999.
+
+#---#　　[75]王伟. 序列图象的几何约束及其应用[D].西安电子科技大学,1998.
+
+#---#　　[76]张光海. 受限柔性机器人装置、建模与控制的研究[D].华南理工大学,1998.
+
+#---#　　[77]金菊良. 遗传算法及其在水问题中的应用[D].河海大学,1998.
+
+#---#　　[78]樊晓平. 受限柔性机器人的动力学建模与智能控制[D].华南理工大学,1998.
+
+#---#　　[79]黄道平. 多变量非线性过程控制[D].华南理工大学,1998.
+
+#---#　　[80]陈虔. 大型应用软件协同开发的版本控制和管理—面向组件增量的版本控制方法[D].中国科学院研究生院（高能物理研究所）,1997.
+
+#---#　　[81]刘黎临. 大型信息网络设计与性能研究[D].中国科学院研究生院（计算技术研究所）,1998.
+
+#---#　　[82]牟树波. ACPI标准的实现技术[D].中国科学院研究生院（计算技术研究所）,1998.
+
+#---#　　[83]侯春海. 工程中时延动态系统的定量稳定性分析[D].浙江大学,1997.
+
+#---#　　[84]孙富春. 机械手的神经网络稳定自适应控制[D].清华大学,1997.
+
+#---#　　[85]周勇. 遥感和地理信息系统支持的土水资源分类、评价与预测研究[D].华中农业大学,1997.
+
+#---#　　[86]李明. 基于工作站网络的分布式共享存储系统的设计[D].中国科学院研究生院（计算技术研究所）,1997.
+
+#---#　　[87]王晓鸥. 计算机控制短波自适应通信网的实现[D].中国科学院研究生院（计算技术研究所）,1997.
+
+#---#　　[88]周小佳. 电力系统可靠性人工神经网络模型及实现研究[D].重庆大学,1997.
+
+#---#　　[89]李永树. 地表移动预计方法及信息处理（SPDP）系统研究[D].中国矿业大学（北京）,1997.
+
+#---#　　[90]孙毓忠. 互连网络性能分析及其应用[D].中国科学院研究生院（计算技术研究所）,1997.
+
+#---#　　计算机专业毕业论文参考文献四：
+
+　　[91]马森. 曙光2000单一系统映象文件系统COSMOS操作系统相关层的设计和实现[D].中国科学院研究生院（计算技术研究所）,1997.
+
+#---#　　[92]陈晨风. 高性能交流伺服系统的智能控制策略[D].浙江大学,1997.
+
+#---#　　[93]林峰. 交流传动系统的控制策略[D].浙江大学,1997.
+
+#---#　　[94]陈小红. 径向基函数网络及其在非线性控制中的应用[D].浙江大学,1996.
+
+#---#　　[95]陈晓青. 高性能交流伺服系统的研究与开发[D].浙江大学,1996.
+
+#---#　　[96]周宏甫. 六坐标工具磨床CNC系统的关键技术研究[D].华中理工大学,1996.
+
+#---#　　[97]王杰. 高精度交流伺服系统的新型控制策略[D].浙江大学,1996.
+
+#---#　　[98]金连文. 手写体汉字识别的研究[D].华南理工大学,1996.
+
+#---#　　[99]戴建荣. 胶片剂量仪软件开发及其在X线立体定向放疗技术中的应用[D].中国协和医科大学,1996.
+
+#---#　　[100]张虹. 并行计算机系统的用户界面研究与设计[D].中国科学院研究生院（计算技术研究所）,1996.
+
+#---#　　[101]朱群雄. 神经网络结构理论与技术的研究及其在过程模拟与过程控制中的应用[D].北京化工大学,1996.
+
+#---#　　[102]张朝海. 电力系统运行与控制[D].华南理工大学,1996.
+
+#---#　　[103]侯昭胤. 神经网络辅助丙烷氨氧化催化剂设计[D].浙江大学,1996.
+
+#---#　　[104]毕立群. 换热网络智能综合方法的理论研究与实践[D].北京化工大学,1995.
+
+#---#　　[105]韦巍. 学习控制及其在机器人控制中的应用[D].浙江大学,1994.
+
+#---#　　[106]金毅. 模糊集合论在生产计划和调度中的应用研究[D].东南大学,1994.
+
+#---#　　[107]蒋其友. 人工智能理论与技术的研究及其在大型离心式压缩机故障诊断中的应用[D].北京化工大学,1993.
+
+#---#　　[108]黄崇福. 信息扩散原理与计算思维及其在地震工程中的应用[D].北京师范大学,1992.
+
+#---#　　[109]贾家麟. 城市环境工程地质系统工程分析方法及其应用[D].中国地质科学院,1992.
+
+#---#　　[110]杨冀宏. 人工智能技术在分离过程综合中的应用研究[D].北京化工大学,1990.
+
+#---#　　[111]钟勇. 人体胚胎视交叉微血管的实验研究[D].中国协和医科大学,1990.
+
+#---#　　[112]赵一举. 肺动脉高压辅助诊断[D].中国协和医科大学,1989.
+
+#---#　　[113]严晓光. 胶鞋模具CAD/CAM一体化技术的研究[D].华中理工大学,1988.
+
+#---#　　[114]陈申. 连续搅拌反应釜（CSTR）计算机实时控制[D].浙江大学,1988.
+
+#---#　　[115]朱善安. 电液控制系统辨识及实时控制策略研究[D].浙江大学,1987.
+D. Baker and A. McCallum. Distributional clustering of words for text classification. In SIGIR’98,
+1998.#---#
+J.R. Bellegarda. A latent semantic analysis framework for large–span language modeling. In Pro￾ceedings of Eurospeech 97, pages 1451–1454, Rhodes, Greece, 1997.#---#
+S. Bengio and Y. Bengio. Taking on the curse of dimensionality in joint distributions using neural
+networks. IEEE Transactions on Neural Networks, special issue on Data Mining and Knowledge
+Discovery, 11(3):550–557, 2000a.#---#
+Y. Bengio. New distributed probabilistic language models. Technical Report 1215, Dept. IRO,
+Université de Montréal, 2002.#---#
+Y. Bengio and S. Bengio. Modeling high-dimensional discrete data with multi-layer neural net￾works. In S. A. Solla, T. K. Leen, and K-R. Müller, editors, Advances in Neural Information
+Processing Systems, volume 12, pages 400–406. MIT Press, 2000b.#---#
+Y. Bengio and J-S. Senécal. Quick training of probabilistic neural nets by importance sampling. In
+AISTATS, 2003.#---#
+A. Berger, S. Della Pietra, and V. Della Pietra. A maximum entropy approach to natural language
+processing. Computational Linguistics, 22:39–71, 1996.#---#
+A. Brown and G.E. Hinton. Products of hidden markov models. Technical Report GCNU TR
+2000-004, Gatsby Unit, University College London, 2000.#---#
+P.F. Brown, V.J. Della Pietra, P.V. DeSouza, J.C. Lai, and R.L. Mercer. Class-based n-gram models
+of natural language. Computational Linguistics, 18:467–479, 1992.#---#
+S.F. Chen and J.T. Goodman. An empirical study of smoothing techniques for language modeling.
+Computer, Speech and Language, 13(4):359–393, 1999.#---#
+S. Deerwester, S.T. Dumais, G.W. Furnas, T.K. Landauer, and R. Harshman. Indexing by latent
+semantic analysis. Journal of the American Society for Information Science, 41(6):391–407,
+1990.#---#
+J. Dongarra, D. Walker, and The Message Passing Interface Forum. MPI: A message passing in￾terface standard. Technical Report http://www-unix.mcs.anl.gov/mpi, University of Tenessee,
+1995.#---#
+1153
+BENGIO, DUCHARME, VINCENT AND JAUVIN
+J.L. Elman. Finding structure in time. Cognitive Science, 14:179–211, 1990.#---#
+C. Fellbaum. WordNet: An Electronic Lexical Database. MIT Press, 1998.#---#
+J .Goodman. A bit of progress in language modeling. Technical Report MSR-TR-2001-72, Mi￾crosoft Research, 2001.
+G.E. Hinton. Learning distributed representations of concepts. In Proceedings of the Eighth An￾nual Conference of the Cognitive Science Society, pages 1–12, Amherst 1986, 1986.#---#
+ Lawrence
+Erlbaum, Hillsdale.
+G.E. Hinton. Training products of experts by minimizing contrastive divergence. Technical Report
+GCNU TR 2000-004, Gatsby Unit, University College London, 2000.#---#
+F. Jelinek and R. L. Mercer. Interpolated estimation of Markov source parameters from sparse
+data. In E. S. Gelsema and L. N. Kanal, editors, Pattern Recognition in Practice. North-Holland,
+Amsterdam, 1980.#---#
+K.J. Jensen and S. Riis. Self-organizing letter code-book for text-to-phoneme neural network model.
+In Proceedings ICSLP, 2000.#---#
+S.M. Katz. Estimation of probabilities from sparse data for the language model component of a
+speech recognizer. IEEE Transactions on Acoustics, Speech, and Signal Processing, ASSP-35
+(3):400–401, March 1987.#---#
+R. Kneser and H. Ney. Improved backing-off for m-gram language modeling. In International
+Conference on Acoustics, Speech and Signal Processing, pages 181–184, 1995.#---#
+Y. LeCun, L. Bottou, G.B. Orr, and K.-R. Müller. Efficient backprop. In G.B. Orr and K.-R. Müller,
+editors, Neural Networks: Tricks of the Trade, pages 9–50. Springer, 1998.#---#
+R. Miikkulainen and M.G. Dyer. Natural language processing with modular neural networks and
+distributed lexicon. Cognitive Science, 15:343–399, 1991.#---#
+H. Ney and R. Kneser. Improved clustering techniques for class-based statistical language mod￾elling. In European Conference on Speech Communication and Technology (Eurospeech), pages
+973–976, Berlin, 1993.#---#
+T.R. Niesler, E.W.D. Whittaker, and P.C. Woodland. Comparison of part-of-speech and automati￾cally derived category-based language models for speech recognition. In International Confer￾ence on Acoustics, Speech and Signal Processing, pages 177–180, 1998.#---#
+A. Paccanaro and G.E. Hinton. Extracting distributed representations of concepts and relations
+from positive and negative propositions. In Proceedings of the International Joint Conference on
+Neural Network, IJCNN’2000, Como, Italy, 2000. IEEE, New York.#---#
+F. Pereira, N. Tishby, and L. Lee. Distributional clustering of english words. In 30th Annual Meeting
+of the Association for Computational Linguistics, pages 183–190, Columbus, Ohio, 1993.#---#
+1154
+A NEURAL PROBABILISTIC LANGUAGE MODEL
+S. Riis and A. Krogh. Improving protein secondary structure prediction using structured neural
+networks and multiple sequence profiles. Journal of Computational Biology, pages 163–183,
+1996.#---#
+J. Schmidhuber. Sequential neural text compression. IEEE Transactions on Neural Networks, 7(1):
+142–146, 1996.#---#
+H. Schutze. Word space. In S. J. Hanson, J. D. Cowan, and C. L. Giles, editors, Advances in Neural
+Information Processing Systems 5, pages pp. 895–902, San Mateo CA, 1993. Morgan Kaufmann.
+H. Schwenk and J-L. Gauvain. Connectionist language modeling for large vocabulary continuous
+speech recognition. In International Conference on Acoustics, Speech and Signal Processing,
+pages 765–768, Orlando, Florida, 2002.#---#
+A. Stolcke. SRILM - an extensible language modeling toolkit. In Proceedings of the International
+Conference on Statistical Language Processing, Denver, Colorado, 2002.#---#
+W. Xu and A. Rudnicky. Can artificial neural network learn language models. In International
+Conference on Statistical Language Processing, pages M1–13, Beijing, China, 2000.#---#

@@ -1,0 +1,9 @@
+consistent area
+turn left
+The system controls for vehicle to drive forward within the boundaries of a traffic lane in the direction of the vehicle.
+The direction of travel of the vehicle is consistent with the direction of the traffic lane.
+IF The roads ahead are horizontal curves THEN
+natural language processing is a computer science techonology which belongs to the artifishial intellengence area.
+The vehicle attempts to turn left while a collision occured, but the true operation should be turning right and braking right away.
+
+

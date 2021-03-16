@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="opennlp-tools-1.5.3">
+    <archive path="D:/Maven/LocalWare_House/org/apache/opennlp/opennlp-tools/1.5.3/opennlp-tools-1.5.3.jar" />
+    <archive path="D:/Maven/LocalWare_House/org/apache/opennlp/opennlp-uima/1.5.3/opennlp-uima-1.5.3.jar" />
+    <archive path="D:/Maven/LocalWare_House/org/apache/opennlp/opennlp-maxent/3.0.3/opennlp-maxent-3.0.3.jar" />
+  </library>
+</eclipse-userlibraries>
+
